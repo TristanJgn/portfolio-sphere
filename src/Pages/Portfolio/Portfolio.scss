@@ -1,3 +1,7 @@
 @use "../../styles/global" as *;
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
+
+.portfolio-page {
+    background-color: $site-background-colour;
+}
