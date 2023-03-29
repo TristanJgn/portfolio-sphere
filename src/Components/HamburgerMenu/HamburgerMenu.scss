@@ -41,7 +41,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  background: $secondary-colour-champagne-pink;
+  background: $secondary-colour-light-grey;
   width: 50%;
   padding: 5rem 2rem;
   transform: translateX(100%);
@@ -58,6 +58,21 @@
 
   &__link {
     text-decoration: none;
-    @include textStyle($primary-colour-blue, 1rem, 1rem, 600);
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 25px;
+    margin-right: 1rem;
+
+    &--bigger {
+        width: 30px;
+        margin-right: 0.6875rem;
+    }
+  }
+
+  &__text {
+    @include textStyle($primary-colour-blue, 1rem, 1.375rem, 600);
   }
 }
