@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import heroImage from "../../assets/images/Hero.png"
 import MainButton from "../Buttons/MainButton/MainButton";
 import "./Hero.scss";
 
 function Hero() {
+  const navigate = useNavigate();
+  const handleGetStarted = () => {
+    navigate("/login"); // Take the user to the login page
+  }
+
   return (
     <section className="hero">
       <div className="hero__text-container">
@@ -25,7 +31,7 @@ function Hero() {
           never been easier
         </span>
       </h2>
-      <MainButton buttonText={"Get Started"}/>
+      <MainButton buttonText={"Get Started"} onClickAction={handleGetStarted}/>
     </section>
   );
 }
