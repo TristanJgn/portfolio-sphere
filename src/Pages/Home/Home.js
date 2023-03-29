@@ -16,6 +16,7 @@ function Home() {
           featureDescription={
             "View real-time price data of the cryptocurrency market"
           }
+          link={"/markets"}
         />
         <FeatureCard
           icon={portfolioIcon}
@@ -23,6 +24,7 @@ function Home() {
           featureDescription={
             "Update your portfolio holdings when you buy or sell investments so Portfolio Sphere can keep you up to date"
           }
+          link={"/portfolio"}
         />
         <FeatureCard
           icon={dashboardIcon}
@@ -30,6 +32,7 @@ function Home() {
           featureDescription={
             "Valuable insights into your portfolio. View the allocation among your top holdings and the total value of your investments"
           }
+          link={"/dashboard"}
         />
       </div>
     </main>
