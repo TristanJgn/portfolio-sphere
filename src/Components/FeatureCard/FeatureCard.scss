@@ -9,7 +9,17 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin: 2rem;
+  margin: 2.5rem 1.5rem;
+  box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
+            1px 2px 4px 0px rgba(0,255,255,0.7),
+            2px 4px 8px 0px rgba(0,255,255,0.7),
+            2px 4px 16px 0px rgba(0,255,255,0.7);
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0,255,255,0.7);
+  }
 
   &__title {
     @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 600);
