@@ -1,0 +1,45 @@
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+    padding: 3rem 1.5rem;
+
+    &__text-container {
+        text-align: center;
+    }
+
+    &__main-text {
+        @include textStyle(#FFF, 1.5rem, 2rem, 600);
+        margin-bottom: 1.5rem;
+
+        &--special {
+            @include textStyle($primary-colour-purple, 1.75rem, 2.25rem, 700);
+        }
+    }
+
+    &__sub-text {
+        @include textStyle (#FFF, 1.25rem, 1.75rem, 500);
+        text-align: center;
+        margin-top: 1.5rem;
+
+        
+        &--special {
+            @include textStyle($secondary-colour-champagne-pink,  1.5rem, 2rem, 600);
+        }
+    }
+
+    &__sub-text--tablet {
+        display: none;
+    }
+
+    &__image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image {
+        border-radius: 50%;
+        width: 100px;
+    }
+}
