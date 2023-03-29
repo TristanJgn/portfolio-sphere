@@ -21,14 +21,14 @@ function Home() {
           icon={portfolioIcon}
           featureTitle={"Manage Portfolio"}
           featureDescription={
-            "Update your portfolio holdings when you buy or sell investments. This way, Portfolio Sphere can kee your portfolio up to date"
+            "Update your portfolio holdings when you buy or sell investments so Portfolio Sphere can keep you up to date"
           }
         />
         <FeatureCard
           icon={dashboardIcon}
           featureTitle={"Dashboard"}
           featureDescription={
-            "Valuable insights into your portfolio. View the allocation of your portfolio among your top holdings and the total value of your investments"
+            "Valuable insights into your portfolio. View the allocation among your top holdings and the total value of your investments"
           }
         />
       </div>

@@ -3,7 +3,7 @@
 @use "../../../styles/mixins" as *;
 
 .main-button {
-    @include textStyle(#FFF, 1rem, 1.25rem, 600);
+    @include textStyle($primary-colour-white, 1rem, 1.25rem, 600);
     padding: 1rem 1rem;
     margin-top: 1.5rem;
     width: 100%;

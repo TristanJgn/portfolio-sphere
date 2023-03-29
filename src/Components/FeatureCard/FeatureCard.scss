@@ -12,13 +12,13 @@
   margin: 2rem;
 
   &__title {
-    @include textStyle(#FFF, 1.25rem, 1.75rem, 600);
+    @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 600);
     text-align: center;
     margin-top: 0.25rem;
   }
 
   &__description {
-    @include textStyle(#FFF, 0.9375rem, 1.625rem, 400);
+    @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
     text-align: center;
     margin-top: 0.75rem;
   }
