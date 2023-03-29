@@ -4,4 +4,10 @@
 
 .footer {
     background-color: $site-background-colour;
+
+    &__text {
+        @include textStyle($primary-colour-white, 0.6875rem, 1rem, 400);
+        text-align: center;
+        padding-bottom: 1.5rem;
+    }
 }
