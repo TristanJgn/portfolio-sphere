@@ -1,4 +1,5 @@
 import heroImage from "../../assets/images/Hero.png"
+import MainButton from "../Buttons/MainButton/MainButton";
 import "./Hero.scss";
 
 function Hero() {
@@ -24,6 +25,7 @@ function Hero() {
           never been easier
         </span>
       </h2>
+      <MainButton buttonText={"Get Started"}/>
     </section>
   );
 }
