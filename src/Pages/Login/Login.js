@@ -34,6 +34,7 @@ function Login() {
       setValidEmail(true);
     }
 
+    // Check password
     if (!password) {
       setValidPassword("error");
       isFormValid = false;
