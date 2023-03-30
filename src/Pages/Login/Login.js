@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import errorIcon from "../../assets/icons/error.svg";
 import "./Login.scss";
 
@@ -122,6 +123,14 @@ function Login() {
           </div>
           <button className="login-form__button">Login</button>
         </form>
+        <h3 className="login-form-container__subtext">
+          New to Portfolio Sphere?{" "}
+          <Link to="/register" className="login-form-container__subtext-link">
+            <span className="login-form-container__subtext--special">
+              Sign up
+            </span>
+          </Link>
+        </h3>
       </section>
     </main>
   );
