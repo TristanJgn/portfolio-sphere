@@ -102,13 +102,11 @@
 
     &--show {
         display: flex;
-        align-items: center;
         margin-top: -1rem;
         margin-bottom: 1.5rem;
     }
     
     &__message {
         @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
-        margin-left: 0.5rem;
     }
 }
