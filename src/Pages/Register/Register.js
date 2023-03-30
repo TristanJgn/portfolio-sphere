@@ -6,8 +6,10 @@ import "./Register.scss";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
+  const [validConfirmPassword, setValidConfirmPassword] = useState(false);
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -15,6 +17,10 @@ function Register() {
 
   const handleChangePassword = (event) => {
     setPassword(event.target.value);
+  };
+
+  const handleChangeConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
   };
 
   const validateForm = () => {
@@ -41,6 +47,19 @@ function Register() {
       isFormValid = false;
     } else {
       setValidPassword(true);
+    }
+
+    // Check confirm password
+    if (!confirmPassword) {
+      setValidConfirmPassword("error");
+      isFormValid = false;
+    } 
+    // Check that passwords match
+    else if (confirmPassword !== password) {
+      setValidConfirmPassword("error");
+      isFormValid = false;
+    } else {
+      setValidConfirmPassword(true);
     }
 
     // Check that every field is valid
@@ -84,9 +103,14 @@ function Register() {
               />
               <h3 className="register-form-error__message">
                 {`${
-                  email && validEmail === "error"
+                  email &&
+                  !email.match(
+                    /^([a-zA-Z\d.-]+)@([a-zA-Z\d]+)\.([a-zA-z]{2,10})$/
+                  )
                     ? "Please enter a valid email"
-                    : "This field is required"
+                    : !email
+                    ? "This field is required"
+                    : "Valid email, resubmit form"
                 }`}
               </h3>
             </div>
@@ -118,6 +142,45 @@ function Register() {
               />
               <h3 className="register-form-error__message">
                 This field is required
+              </h3>
+            </div>
+          </div>
+          <div className="register-form__input-group">
+            <label className="register-form__label" htmlFor="confirmPassword">
+              Confirm Password
+            </label>
+            <input
+              className={`register-form__input ${
+                validConfirmPassword === "error"
+                  ? "register-form__input--error"
+                  : ""
+              }`}
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={handleChangeConfirmPassword}
+            ></input>
+            <div
+              className={`register-form-error ${
+                validConfirmPassword === "error"
+                  ? "register-form-error--show"
+                  : ""
+              }`}
+            >
+              <img
+                className="register-form-error__icon"
+                src={errorIcon}
+                alt="error icon"
+              />
+              <h3 className="register-form-error__message">
+                {`${
+                  !confirmPassword ? "This field is required" :
+                  !password || (password && confirmPassword !== password)
+                    ? "Passwords do not match"
+                    : "Matching, resubmit form"
+                }`}
               </h3>
             </div>
           </div>
