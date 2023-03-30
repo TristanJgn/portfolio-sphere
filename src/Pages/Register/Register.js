@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import errorIcon from "../../assets/icons/error.svg";
 import "./Register.scss";
 
 function Register() {
@@ -96,11 +95,6 @@ function Register() {
                 validEmail === "error" ? "register-form-error--show" : ""
               }`}
             >
-              <img
-                className="register-form-error__icon"
-                src={errorIcon}
-                alt="error icon"
-              />
               <h3 className="register-form-error__message">
                 {`${
                   email &&
@@ -110,7 +104,7 @@ function Register() {
                     ? "Please enter a valid email"
                     : !email
                     ? "This field is required"
-                    : "Valid email, resubmit form"
+                    : ""
                 }`}
               </h3>
             </div>
@@ -135,13 +129,8 @@ function Register() {
                 validPassword === "error" ? "register-form-error--show" : ""
               }`}
             >
-              <img
-                className="register-form-error__icon"
-                src={errorIcon}
-                alt="error icon"
-              />
               <h3 className="register-form-error__message">
-                This field is required
+                {`${!password ? "This field is required" : ""}`}
               </h3>
             </div>
           </div>
@@ -169,17 +158,13 @@ function Register() {
                   : ""
               }`}
             >
-              <img
-                className="register-form-error__icon"
-                src={errorIcon}
-                alt="error icon"
-              />
               <h3 className="register-form-error__message">
                 {`${
-                  !confirmPassword ? "This field is required" :
-                  !password || (password && confirmPassword !== password)
+                  !confirmPassword
+                    ? "This field is required"
+                    : !password || (password && confirmPassword !== password)
                     ? "Passwords do not match"
-                    : "Matching, resubmit form"
+                    : ""
                 }`}
               </h3>
             </div>

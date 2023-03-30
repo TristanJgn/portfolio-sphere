@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import errorIcon from "../../assets/icons/error.svg";
 import "./Login.scss";
 
 function Login() {
@@ -77,16 +76,16 @@ function Login() {
                 validEmail === "error" ? "login-form-error--show" : ""
               }`}
             >
-              <img
-                className="login-form-error__icon"
-                src={errorIcon}
-                alt="error icon"
-              />
               <h3 className="login-form-error__message">
                 {`${
-                  email && validEmail === "error"
+                  email &&
+                  !email.match(
+                    /^([a-zA-Z\d.-]+)@([a-zA-Z\d]+)\.([a-zA-z]{2,10})$/
+                  )
                     ? "Please enter a valid email"
-                    : "This field is required"
+                    : !email
+                    ? "This field is required"
+                    : ""
                 }`}
               </h3>
             </div>
@@ -111,13 +110,11 @@ function Login() {
                 validPassword === "error" ? "login-form-error--show" : ""
               }`}
             >
-              <img
-                className="login-form-error__icon"
-                src={errorIcon}
-                alt="error icon"
-              />
               <h3 className="login-form-error__message">
-                This field is required
+                {`${!password
+                    ? "This field is required"
+                    : ""
+                }`}
               </h3>
             </div>
           </div>
