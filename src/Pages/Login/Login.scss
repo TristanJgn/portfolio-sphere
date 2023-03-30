@@ -4,4 +4,81 @@
 
 .login-page {
     background-color: $site-background-colour;
+    padding: 50% 3.5rem;
+    height: 100vh;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-colour-dark-grey;
+    padding: 1.5rem;
+    border-radius: 4px;
+
+    &__title {
+        @include textStyle($secondary-colour-cyan, 1.25rem, 1.75rem, 600);
+    }
+}
+
+.login-form {
+    &__label {
+        @include textStyle($secondary-colour-cyan, 0.9375rem, 1.625rem, 500);
+        margin-bottom: 0.25rem;
+    }
+
+    &__input {
+        background-color: $secondary-colour-medium-grey;
+        border: none;
+        outline: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 400);
+
+        &:focus {
+            outline: 1px solid $secondary-colour-cyan;
+        }
+
+        &::placeholder {
+            @include textStyle($secondary-colour-light-grey, 0.8125rem, 1.25rem, 400);
+        }
+
+        &--error {
+            border: 1px solid $secondary-colour-red;
+
+            &:focus {
+                outline: 1px solid $secondary-colour-red;
+            }
+        }
+    }
+
+    &__button {
+        padding: 0.5rem 1rem;
+        margin-top: 0.5rem;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        @include textStyle($secondary-colour-dark-grey, 0.9375rem, 1.625rem, 500);
+        background-color: $secondary-colour-cyan;
+        cursor: pointer;
+        width: 100%;
+    }
+}
+
+.login-form-error {
+    display: none;
+
+    &--show {
+        display: flex;
+        align-items: center;
+        margin-top: -1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    &__message {
+        @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
+        margin-left: 0.5rem;
+    }
 }
