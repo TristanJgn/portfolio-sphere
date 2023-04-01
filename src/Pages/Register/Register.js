@@ -10,6 +10,35 @@ function Register() {
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
 
+  function passwordStrengthCheck() {
+    let passwordStrength = 0;
+    if (password.length >= 8) {
+      // Weak password length
+      passwordStrength++;
+    }
+    if (password.length >= 11) {
+      // Good password length
+      passwordStrength++;
+    }
+    if (password.length >= 14) {
+      // Strong password length
+      passwordStrength++;
+    }
+    if (/[A-Z]/.test(password)) {
+      // Includes at least one uppercase letter
+      passwordStrength++;
+    }
+    if (/[0-9]/.test(password)) {
+      // Includes at least one digit
+      passwordStrength++;
+    }
+    // eslint-disable-next-line
+    if (/[!-\/:-@[-`{-~]/.test(password)) { // Includes at least one special character
+      passwordStrength++;
+    }
+    return passwordStrength;
+  }
+
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
   };
@@ -124,9 +153,35 @@ function Register() {
               value={password}
               onChange={handleChangePassword}
             ></input>
-            <div className="register-form-password-strength">
-              <div className="register-form-password-strength__meter"></div>
-              <h3 className="register-form-password-strength__text">Weak</h3>
+            <div
+              className={`${
+                !password
+                  ? "register-form-password-strength"
+                  : "register-form-password-strength--show"
+              }`}
+            >
+              <div
+                className={`register-form-password-strength__meter ${
+                  passwordStrengthCheck() <= 2
+                    ? "register-form-password-strength__meter--weak"
+                    : passwordStrengthCheck() <= 5
+                    ? "register-form-password-strength__meter--good"
+                    : "register-form-password-strength__meter--strong"
+                }`}
+              ></div>
+              <h3
+                className={`register-form-password-strength__text ${
+                  passwordStrengthCheck() <= 2
+                    ? "register-form-password-strength__text--weak"
+                    : passwordStrengthCheck() <= 5
+                    ? "register-form-password-strength__text--good"
+                    : "register-form-password-strength__text--strong"
+                }`}
+              >
+                {passwordStrengthCheck() <= 2
+                  ? "Weak"
+                  : passwordStrengthCheck() <= 5 ? "Good" : "Strong"}
+              </h3>
             </div>
             <div
               className={`register-form-error ${
