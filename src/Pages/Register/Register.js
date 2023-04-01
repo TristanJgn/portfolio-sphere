@@ -124,6 +124,10 @@ function Register() {
               value={password}
               onChange={handleChangePassword}
             ></input>
+            <div className="register-form-password-strength">
+              <div className="register-form-password-strength__meter"></div>
+              <h3 className="register-form-password-strength__text">Weak</h3>
+            </div>
             <div
               className={`register-form-error ${
                 validPassword === "error" ? "register-form-error--show" : ""

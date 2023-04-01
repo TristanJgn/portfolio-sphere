@@ -110,3 +110,27 @@
         @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
     }
 }
+
+.register-form-password-strength {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $secondary-colour-dark-grey;
+    border-radius: 100px;
+    height: 1.25rem;
+    width: 100%;
+    margin-top: -1.25rem;
+    margin-bottom: 1rem;
+
+    &__meter {
+        background-color: $primary-colour-white;
+        width: 1%;
+        border-radius: 100px;
+        height: 0.625rem;
+        filter: drop-shadow(0 0 5px $primary-colour-white)
+    }
+
+    &__text {
+        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600)
+    }
+}
