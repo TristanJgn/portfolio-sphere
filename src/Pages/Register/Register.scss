@@ -112,25 +112,59 @@
 }
 
 .register-form-password-strength {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: $secondary-colour-dark-grey;
-    border-radius: 100px;
-    height: 1.25rem;
-    width: 100%;
-    margin-top: -1.25rem;
-    margin-bottom: 1rem;
+    display: none;
+
+    &--show {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $secondary-colour-dark-grey;
+        border-radius: 100px;
+        height: 1.25rem;
+        width: 100%;
+        margin-top: -1.25rem;
+        margin-bottom: 1rem;
+    }
 
     &__meter {
-        background-color: $primary-colour-white;
         width: 1%;
         border-radius: 100px;
         height: 0.625rem;
-        filter: drop-shadow(0 0 5px $primary-colour-white)
+        transition: width 0.5s linear;
+
+        &--weak {
+            width: 10%;
+            background-color: $secondary-colour-red;
+            filter: drop-shadow(0 0 5px $secondary-colour-red)
+        }
+
+        &--good {
+            width: 45%;
+            background-color: $secondary-colour-yellow;
+            filter: drop-shadow(0 0 5px $secondary-colour-yellow)
+        }
+
+        &--strong {
+            width: 79%;
+            background-color: $secondary-colour-green;
+            filter: drop-shadow(0 0 5px $secondary-colour-green)
+        }
+
     }
 
     &__text {
-        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600)
+        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600);
+
+        &--weak {
+            color: $secondary-colour-red;
+        }
+
+        &--good {
+            color: $secondary-colour-yellow;
+        }
+
+        &--strong {
+            color: $secondary-colour-green;
+        }
     }
 }
