@@ -19,7 +19,7 @@
     z-index: 1;
 
     &--active {
-        background: #000;
+        background: $primary-colour-white;
         transition: 0.5s ease-in-out;
 
         &:nth-child(2) {
@@ -42,7 +42,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  background: $secondary-colour-light-grey;
+  background: $secondary-colour-dark-grey;
   width: 50%;
   padding: 5rem 2rem;
   transform: translateX(100%);
@@ -74,6 +74,6 @@
   }
 
   &__text {
-    @include textStyle($primary-colour-blue, 1rem, 1.375rem, 600);
+    @include textStyle($primary-colour-white, 1rem, 1.375rem, 600);
   }
 }

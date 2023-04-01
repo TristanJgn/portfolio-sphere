@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import homeIcon from "../../assets/icons/home.svg";
-import marketsIcon from "../../assets/icons/markets.svg"
-import portfolioIcon from "../../assets/icons/portfolio.svg"
-import dashboardIcon from "../../assets/icons/dashboard.svg";
-import loginIcon from "../../assets/icons/login.svg";
+import homeIcon from "../../assets/icons/home-white.svg";
+import marketsIcon from "../../assets/icons/markets-white.svg"
+import portfolioIcon from "../../assets/icons/portfolio-white.svg"
+import dashboardIcon from "../../assets/icons/dashboard-white.svg";
+import loginIcon from "../../assets/icons/login-white.svg";
 import "./HamburgerMenu.scss";
 
 function HamburgerMenu() {
