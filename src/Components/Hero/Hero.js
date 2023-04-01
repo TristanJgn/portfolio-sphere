@@ -6,7 +6,7 @@ import "./Hero.scss";
 function Hero() {
   const navigate = useNavigate();
   const handleGetStarted = () => {
-    navigate("/login"); // Take the user to the login page
+    navigate("/register"); // Take the user to the registration page
   }
 
   return (
