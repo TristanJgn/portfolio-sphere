@@ -228,7 +228,7 @@ function Register() {
               </h3>
             </div>
           </div>
-          <button className="register-form__button">Reigster</button>
+          <button className="register-form__button">Register</button>
         </form>
         <h3 className="register-form-container__subtext">
           Already have an account?{" "}
