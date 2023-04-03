@@ -2,15 +2,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-// To hide table contents that scroll beyond the two first sticky columns
-.hidden-overflow {
-    position: absolute;
-    width: 3rem;
-    height: 100%;
-    background-color: $site-background-colour;
-    z-index: 1;
-}
-
 .markets-table-container {
     padding: 1.5rem 0rem;
     overflow-x: auto;
@@ -32,7 +23,8 @@
 
     &__header-column--sticky--first {
         position: sticky;
-        left: 0.5rem;
+        left: 0;
+        padding: 0.5rem 1.5rem;
         z-index: 1;
         background-color: $site-background-colour;
     }
@@ -41,6 +33,7 @@
         position: sticky;
         left: 5rem;
         z-index: 1;
+        text-align: left;
         background-color: $site-background-colour;
     }
 
@@ -62,9 +55,9 @@
 
     &__body-column--sticky--first {
         position: sticky;
-        left: 0.5rem;
+        left: 0;
+        padding: 0.5rem 1.5rem;
         z-index: 1;
-        text-align: center;
         background-color: $site-background-colour;
     }
 
@@ -72,14 +65,13 @@
         position: sticky;
         left: 5rem;
         z-index: 1;
-        text-align: center;
+        text-align: left;
         background-color: $site-background-colour;
     }
 
     &__body-column-coin {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
 
         &__name {
             @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
