@@ -2,3 +2,82 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
+// To hide table contents that scroll beyond the two first sticky columns
+.hidden-overflow {
+    position: absolute;
+    width: 3rem;
+    height: 100%;
+    background-color: $site-background-colour;
+    z-index: 1;
+}
+
+.markets-table-container {
+    padding: 1.5rem;
+    overflow-x: auto;
+    background-color: $site-background-colour;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.markets-table {
+    &__header-column {
+        @include textStyle($primary-colour-white, 1.125rem, 1.75rem, 700);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+    }
+
+    &__header-column--sticky--first {
+        position: sticky;
+        left: 0.5rem;
+        z-index: 1;
+        background-color: $site-background-colour;
+    }
+
+    &__header-column--sticky--second {
+        position: sticky;
+        left: 5rem;
+        z-index: 1;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column {
+        @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    &__body-column--sticky--first {
+        position: sticky;
+        left: 0.5rem;
+        z-index: 1;
+        text-align: center;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column--sticky--second {
+        position: sticky;
+        left: 5rem;
+        z-index: 1;
+        text-align: center;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column-coin {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__name {
+            @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
+        }
+
+        &__symbol {
+            @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
+        }
+    }
+}
