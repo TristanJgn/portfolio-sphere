@@ -1,6 +1,27 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./MarketsTable.scss";
 
 function MarketsTable() {
+  const [coinsList, setCoinsList] = useState(null);
+
+  useEffect(() => {
+    axios
+    .get("http://localhost:8080/coins")
+    .then((response) => {
+        if (response.status === 200) {
+            setCoinsList(response.data);
+        }
+    })
+    .catch((error) => {
+        return <h2>{error.message}</h2>
+    });
+  }, []);
+
+  if (!coinsList) {
+    return <h2>Loading market data...</h2>
+  }
+
   return (
     <>
       <div className="hidden-overflow"></div>
@@ -23,25 +44,39 @@ function MarketsTable() {
             </tr>
           </thead>
           <tbody className="markets-table__body-container">
-            <tr className="markets-table__body-row">
-              <td className="markets-table__body-column markets-table__body-column--sticky--first">
-                1
-              </td>
-              <td className="markets-table__body-column markets-table__body-column--sticky--second">
-                <div className="markets-table__body-column-coin">
-                  <p className="markets-table__body-column-coin__name">
-                    Bitcoin
-                  </p>
-                  <p className="markets-table__body-column-coin__symbol">BTC</p>
-                </div>
-              </td>
-              <td className="markets-table__body-column">$7,500</td>
-              <td className="markets-table__body-column">0.6%</td>
-              <td className="markets-table__body-column">-0.5%</td>
-              <td className="markets-table__body-column">2.00%</td>
-              <td className="markets-table__body-column">$900,000,000,000</td>
-              <td className="markets-table__body-column">$700,000,000</td>
-            </tr>
+            {coinsList.map((coin, index) => {
+                return (
+                  <tr className="markets-table__body-row">
+                    <td className="markets-table__body-column markets-table__body-column--sticky--first">
+                      {index + 1}
+                    </td>
+                    <td className="markets-table__body-column markets-table__body-column--sticky--second">
+                      <div className="markets-table__body-column-coin">
+                        <p className="markets-table__body-column-coin__name">
+                          {coin.name}
+                        </p>
+                        <p className="markets-table__body-column-coin__symbol">
+                          {coin.symbol}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="markets-table__body-column">{coin.price}</td>
+                    <td className="markets-table__body-column">
+                      {coin.percent_change_1h}
+                    </td>
+                    <td className="markets-table__body-column">
+                      {coin.percent_change_24h}
+                    </td>
+                    <td className="markets-table__body-column">
+                      {coin.percent_change_7d}
+                    </td>
+                    <td className="markets-table__body-column">
+                      {coin.market_cap}
+                    </td>
+                    <td className="markets-table__body-column">{coin.volume_24h}</td>
+                  </tr>
+                );
+            })}
           </tbody>
         </table>
       </div>
