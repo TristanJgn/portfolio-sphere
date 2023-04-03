@@ -49,6 +49,15 @@
         text-align: center;
         margin-right: 1.5rem;
         padding: 0.5rem 1rem;
+
+        &--positive {
+            color: $secondary-colour-green;
+            opacity: 80%;
+        }
+
+        &--negative {
+            color: red;
+        }
     }
 
     &__body-column--sticky--first {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { priceFormat, roundedDollarFormat, percentageFormat } from "../../Utils/NumberFormatting";
 import "./MarketsTable.scss";
 
 function MarketsTable() {
@@ -60,20 +61,42 @@ function MarketsTable() {
                         </p>
                       </div>
                     </td>
-                    <td className="markets-table__body-column">{coin.price}</td>
                     <td className="markets-table__body-column">
-                      {coin.percent_change_1h}
+                      {priceFormat(coin.price)}
+                    </td>
+                    <td
+                      className={`markets-table__body-column ${
+                        coin.percent_change_1h > 0
+                          ? "markets-table__body-column--positive"
+                          : "markets-table__body-column--negative"
+                      }`}
+                    >
+                      {percentageFormat(coin.percent_change_1h)}
+                    </td>
+                    <td
+                      className={`markets-table__body-column ${
+                        coin.percent_change_24h > 0
+                          ? "markets-table__body-column--positive"
+                          : "markets-table__body-column--negative"
+                      }`}
+                    >
+                      {percentageFormat(coin.percent_change_24h)}
+                    </td>
+                    <td
+                      className={`markets-table__body-column ${
+                        coin.percent_change_7d > 0
+                          ? "markets-table__body-column--positive"
+                          : "markets-table__body-column--negative"
+                      }`}
+                    >
+                      {percentageFormat(coin.percent_change_7d)}
                     </td>
                     <td className="markets-table__body-column">
-                      {coin.percent_change_24h}
+                      {roundedDollarFormat(coin.market_cap)}
                     </td>
                     <td className="markets-table__body-column">
-                      {coin.percent_change_7d}
+                      {roundedDollarFormat(coin.volume_24h)}
                     </td>
-                    <td className="markets-table__body-column">
-                      {coin.market_cap}
-                    </td>
-                    <td className="markets-table__body-column">{coin.volume_24h}</td>
                   </tr>
                 );
             })}
