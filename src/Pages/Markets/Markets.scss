@@ -4,4 +4,9 @@
 
 .markets-page {
     background-color: $site-background-colour;
+
+    &__title {
+        padding: 1.5rem;
+        @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+    }
 }
