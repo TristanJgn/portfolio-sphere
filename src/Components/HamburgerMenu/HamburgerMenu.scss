@@ -16,7 +16,7 @@
     position: relative;
     background: $primary-colour-white;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 100;
 
     &--active {
         background: $primary-colour-white;
@@ -42,6 +42,7 @@
   top: 0;
   right: 0;
   height: 100%;
+  z-index: 99;
   background: $secondary-colour-dark-grey;
   width: 50%;
   padding: 5rem 2rem;
