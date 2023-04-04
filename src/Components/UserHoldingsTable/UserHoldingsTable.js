@@ -1,3 +1,5 @@
+import editIcon from "../../assets/icons/edit.svg"
+import deleteIcon from "../../assets/icons/delete.svg";
 import "./UserHoldingsTable.scss";
 
 function UserHoldingsTable({userHoldings}) {
@@ -12,6 +14,7 @@ function UserHoldingsTable({userHoldings}) {
               Coin
             </th>
             <th className="user-holdings-table__header-column">Amount</th>
+            <th className="user-holdings-table__header-column">Actions</th>
           </tr>
         </thead>
         <tbody className="user-holdings-table__body-container">
@@ -34,6 +37,20 @@ function UserHoldingsTable({userHoldings}) {
                 <td className="user-holdings-table__body-column">
                   {/* Multiplying by 1 removes any trailing zeros */}
                   {coin.coin_amount * 1}
+                </td>
+                <td className="user-holdings-table__body-column">
+                  <div className="user-holdings-table__body-column-actions">
+                    <img
+                      className="user-holdings-table__body-column-actions__edit"
+                      src={editIcon}
+                      alt="edit icon"
+                    />
+                    <img
+                      className="user-holdings-table__body-column-actions__delete"
+                      src={deleteIcon}
+                      alt="delete icon"
+                    />
+                  </div>
                 </td>
               </tr>
             );
