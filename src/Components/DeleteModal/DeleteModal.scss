@@ -1,0 +1,121 @@
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.delete-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 0;
+    width: 100vw;
+    height: 35%;
+
+    @include tablet {
+        padding: 0 3rem;
+    }
+
+    &__content {
+        margin: auto;
+        height: 100%;
+        padding: 1.5rem 1rem;
+        background-color: $secondary-colour-dark-grey;
+        position: relative;
+
+        @include tablet {
+            width: 42rem;
+            height: 16.375rem;
+            padding: 2.5rem 4rem;
+            margin-top: 11.5625rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__header {
+        margin: 2.25rem 0 1rem 0;
+
+        @include tablet {
+            margin-top: 0;
+        }
+
+        &-title {
+            @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 600);
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 2rem, 2.5rem, 600);
+            }
+        }
+    }
+
+    &__body {
+        &-p {
+            @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 1rem, 1.75rem, 400);
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 5rem;
+        bottom: 0;
+        padding-bottom: 1.5rem;
+
+        @include tablet {
+            position: static;
+            padding-bottom: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &__cancel {
+        @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 600);
+        height: 2.25rem;
+        width: 47.52%;
+        border: 1px solid $secondary-colour-light-grey;
+        border-radius: 1.25rem;
+        background-color: $primary-colour-white;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        @include tablet {
+            height: 2.375rem;
+            width: 4.5rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__delete {
+        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600);
+        height: 2.25rem;
+        width: 47.52%;
+        border-radius: 1.25rem;
+        background-color: $secondary-colour-red;
+        border: none;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        @include tablet {
+            height: 2.375rem;
+            width: 4.5rem;
+        }
+    }
+
+    &__close {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 1.25rem;
+        top: 1.25rem;
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
