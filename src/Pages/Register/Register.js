@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Register.scss";
 
 function Register() {
@@ -9,6 +10,7 @@ function Register() {
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
+  const [existingEmail, setExistingEmail] = useState(false);
 
   function passwordStrengthCheck() {
     let passwordStrength = 0;
@@ -96,7 +98,22 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateForm();
+    setExistingEmail(false); // Clear the email error message on every form submission attempt, if the email is in use, the catch statement will handle it
+    if (validateForm()) {
+      axios.post("http://localhost:8080/users/register", {
+        email,
+        password,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response.data.error === "An account with this email already exists") {
+          setExistingEmail(true);
+        }
+        return <h2>{error.message}</h2>
+      });
+    };
   };
 
   return (
@@ -135,6 +152,15 @@ function Register() {
                     ? "This field is required"
                     : ""
                 }`}
+              </h3>
+            </div>
+            <div
+              className={`register-form-error ${
+                existingEmail ? "register-form-error--show" : ""
+              }`}
+            >
+              <h3 className="register-form-error__message">
+                An account with this email already exists
               </h3>
             </div>
           </div>
@@ -180,7 +206,9 @@ function Register() {
               >
                 {passwordStrengthCheck() <= 2
                   ? "Weak"
-                  : passwordStrengthCheck() <= 5 ? "Good" : "Strong"}
+                  : passwordStrengthCheck() <= 5
+                  ? "Good"
+                  : "Strong"}
               </h3>
             </div>
             <div
