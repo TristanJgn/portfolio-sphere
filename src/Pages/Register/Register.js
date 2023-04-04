@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.scss";
 
@@ -11,6 +11,8 @@ function Register() {
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
   const [existingEmail, setExistingEmail] = useState(false);
+
+  const navigate = useNavigate();
 
   function passwordStrengthCheck() {
     let passwordStrength = 0;
@@ -105,7 +107,12 @@ function Register() {
         password,
       })
       .then((response) => {
-        console.log(response);
+        if (response.status === 201) {
+          sessionStorage.setItem("authToken", response.data.token); // Set session to have JWT token so user can start using the site
+          setTimeout(() => {
+            navigate("/"); // Take user back home after successful registration
+          }, 2000)
+        }
       })
       .catch((error) => {
         if (error.response.data.error === "An account with this email already exists") {
