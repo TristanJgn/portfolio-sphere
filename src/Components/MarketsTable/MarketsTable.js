@@ -45,7 +45,7 @@ function MarketsTable() {
             <tbody className="markets-table__body-container">
             {coinsList.map((coin, index) => {
                 return (
-                    <tr className="markets-table__body-row">
+                    <tr className="markets-table__body-row" key={coin.id}>
                     <td className="markets-table__body-column markets-table__body-column--sticky--first">
                         {index + 1}
                     </td>
