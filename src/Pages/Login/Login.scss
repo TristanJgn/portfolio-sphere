@@ -4,7 +4,10 @@
 
 .login-page {
     background-color: $site-background-colour;
-    padding: 50% 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5rem;
     height: 100vh;
 }
 
