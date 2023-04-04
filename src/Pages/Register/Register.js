@@ -100,7 +100,6 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setExistingEmail(false); // Clear the email error message on every form submission attempt, if the email is in use, the catch statement will handle it
     if (validateForm()) {
       axios.post("http://localhost:8080/users/register", {
         email,
@@ -117,6 +116,9 @@ function Register() {
       .catch((error) => {
         if (error.response.data.error === "An account with this email already exists") {
           setExistingEmail(true);
+          setTimeout(() => {
+            setExistingEmail(false);
+          }, 3000) // Remove error message after a few seconds as user should either move to login page or start changing the email
         }
         return <h2>{error.message}</h2>
       });
