@@ -1,3 +1,4 @@
+import axios from "axios";
 import closeIcon from "../../assets/icons/close-white.svg";
 import "./DeleteModal.scss";
 
@@ -5,6 +6,29 @@ function DeleteModal({ coin, show, onClose }) {
   if (show === false) {
     return null;
   }
+
+  const deleteCoin = () => {
+    const jwtToken = sessionStorage.authToken;
+    if (!jwtToken) {
+        return;
+    }
+
+    axios
+    .delete(`http://localhost:8080/portfolio/${coin.coin_id}`, {
+        headers: {
+            Authorization: `Bearer ${jwtToken}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 204) {
+            window.location.reload(); // Refresh the page to update the user's portfolio on screen
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        return <h2>{error.message}</h2>;
+    });
+  };
 
   return (
     <div className="delete-modal" onClick={() => onClose()}>
@@ -33,7 +57,7 @@ function DeleteModal({ coin, show, onClose }) {
           <button className="delete-modal__cancel" onClick={() => onClose()}>
             Cancel
           </button>
-          <button className="delete-modal__delete">Delete</button>
+          <button className="delete-modal__delete" onClick={() => deleteCoin()}>Delete</button>
         </div>
       </div>
     </div>
