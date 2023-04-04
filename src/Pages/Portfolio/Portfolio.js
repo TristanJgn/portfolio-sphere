@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import MainButton from "../../Components/Buttons/MainButton/MainButton"
 import "./Portfolio.scss";
+import UserHoldingsTable from "../../Components/UserHoldingsTable/UserHoldingsTable";
 
 function Portfolio() {
   const [userHoldings, setUserHoldings] = useState(null);
@@ -58,25 +59,19 @@ function Portfolio() {
   }
 
   if (!userHoldings) {
-      return (
-        <main className="portfolio-page">
-          <h2 className="portfolio-page__title">Add coins to your portfolio</h2>
-        </main>
-      );
+    return (
+      <main className="portfolio-page">
+        <h2 className="portfolio-page__title">Add coins to your portfolio</h2>
+      </main>
+    );
   }
 
   return (
-    <ul>
-      {userHoldings.map((coin) => {
-        return (
-          <li key={coin.coin_id}>
-            <p>{coin.coin_name}</p>
-            <p>{coin.coin_amount}</p>
-          </li>
-        )
-      })}
-    </ul>
-  )
+    <main className="portfolio-page">
+      <h2 className="portfolio-page__title">Your Portfolio</h2>
+      <UserHoldingsTable userHoldings={userHoldings}/>
+    </main>
+  );
 
 
 }

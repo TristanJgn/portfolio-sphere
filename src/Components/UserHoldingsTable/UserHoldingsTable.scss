@@ -1,0 +1,44 @@
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.user-holdings-table-container {
+    padding: 1.5rem 0rem;
+    background-color: $site-background-colour;
+}
+
+.user-holdings-table {
+    &__header-column {
+        @include textStyle($primary-colour-white, 1.125rem, 1.75rem, 700);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+
+        &--left {
+            text-align: left;
+        }
+    }
+
+    &__body-column {
+        @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    &__body-column-coin {
+        display: flex;
+        flex-direction: column;
+
+        &__name {
+            @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
+            text-align: left
+        }
+
+        &__symbol {
+            @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
+            text-align: left
+        }
+    }
+}
