@@ -9,7 +9,6 @@ function UserHoldingsTable({userHoldings}) {
       <table className="user-holdings-table">
         <thead className="user-holdings-table__header-container">
           <tr className="user-holdings-table__header-row">
-            <th className="user-holdings-table__header-column">Rank</th>
             <th className="user-holdings-table__header-column user-holdings-table__header-column--left">
               Coin
             </th>
@@ -18,12 +17,9 @@ function UserHoldingsTable({userHoldings}) {
           </tr>
         </thead>
         <tbody className="user-holdings-table__body-container">
-          {userHoldings.map((coin, index) => {
+          {userHoldings.map((coin) => {
             return (
               <tr className="user-holdings-table__body-row" key={coin.coin_id}>
-                <td className="user-holdings-table__body-column">
-                  {index + 1}
-                </td>
                 <td className="user-holdings-table__body-column">
                   <div className="user-holdings-table__body-column-coin">
                     <p className="user-holdings-table__body-column-coin__name">
