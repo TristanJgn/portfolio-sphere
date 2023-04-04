@@ -1,6 +1,6 @@
-@use "../../../styles/global" as *;
-@use "../../../styles/variables" as *;
-@use "../../../styles/mixins" as *;
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .main-button {
     @include textStyle($primary-colour-white, 1rem, 1.25rem, 600);

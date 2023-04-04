@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import MainButton from "../../Components/Buttons/MainButton/MainButton"
+import MainButton from "../../Components/MainButton/MainButton"
 import "./Portfolio.scss";
 import UserHoldingsTable from "../../Components/UserHoldingsTable/UserHoldingsTable";
 

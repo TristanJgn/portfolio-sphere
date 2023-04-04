@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import heroImage from "../../assets/images/Hero.png"
-import MainButton from "../Buttons/MainButton/MainButton";
+import MainButton from "../MainButton/MainButton";
 import "./Hero.scss";
 
 function Hero() {
