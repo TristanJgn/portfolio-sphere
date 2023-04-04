@@ -56,6 +56,11 @@
   &__item {
     margin-bottom: 1.5rem;
     list-style: none;
+
+    &--logout {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__link {
