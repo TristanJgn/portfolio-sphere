@@ -25,7 +25,6 @@ function DeleteModal({ coin, show, onClose }) {
         }
     })
     .catch((error) => {
-        console.log(error);
         return <h2>{error.message}</h2>;
     });
   };
