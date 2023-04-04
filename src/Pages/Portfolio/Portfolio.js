@@ -1,8 +1,35 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import MainButton from "../../Components/Buttons/MainButton/MainButton"
 import "./Portfolio.scss";
 
 function Portfolio() {
+  const [userHoldings, setUserHoldings] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const jwtToken = sessionStorage.authToken;
+    if (!jwtToken) {
+      return;
+    }
+
+    axios.get("http://localhost:8080/portfolio", {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        setUserHoldings(response.data);
+        setIsLoading(false);
+      }
+    })
+    .catch((error) => {
+      return <h2>{error.message}</h2>
+    })
+  }, [])
+
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate("/login"); // Take the user to the login page
@@ -21,6 +48,36 @@ function Portfolio() {
       </main>
     );
   }
+
+  if (isLoading) {
+    return (
+      <main className="portfolio-page">
+        <h2 className="portfolio-page__title">Getting your portfolio...</h2>
+      </main>
+    );
+  }
+
+  if (!userHoldings) {
+      return (
+        <main className="portfolio-page">
+          <h2 className="portfolio-page__title">Add coins to your portfolio</h2>
+        </main>
+      );
+  }
+
+  return (
+    <ul>
+      {userHoldings.map((coin) => {
+        return (
+          <li key={coin.coin_id}>
+            <p>{coin.coin_name}</p>
+            <p>{coin.coin_amount}</p>
+          </li>
+        )
+      })}
+    </ul>
+  )
+
 
 }
 
