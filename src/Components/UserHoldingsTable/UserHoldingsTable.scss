@@ -20,40 +20,4 @@
             text-align: left;
         }
     }
-
-    &__body-column {
-        @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
-        text-align: center;
-        margin-right: 1.5rem;
-        padding: 0.5rem 1rem;
-        padding-left: 0;
-    }
-
-    &__body-column-coin {
-        display: flex;
-        flex-direction: column;
-
-        &__name {
-            @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
-            text-align: left
-        }
-
-        &__symbol {
-            @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
-            text-align: left
-        }
-    }
-
-    &__body-column-actions {
-        display: flex;
-        justify-content: space-around;
-
-        &__edit {
-            width: 25px;
-        }
-
-        &__delete {
-            width: 25px;
-        }
-    }
 }
