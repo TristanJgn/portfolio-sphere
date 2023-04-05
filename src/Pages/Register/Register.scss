@@ -1,6 +1,6 @@
-@use "../../styles/global" as *;
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .register-page {
     background-color: $site-background-colour;

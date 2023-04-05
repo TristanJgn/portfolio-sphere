@@ -1,6 +1,45 @@
-@use "../../styles/global" as *;
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.user-holdings-section {
+    &__search {
+        display: flex;
+        position: relative;
+    }
+
+    &__icon {
+        width: 25px;
+        position: absolute;
+        top: 2.4rem;
+        left: 0.75rem;
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: 2rem;
+        height: 36px;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 2px solid $primary-colour-blue;
+        @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+        text-align: center;
+
+        @include tablet {
+            height: 38px;
+        }
+
+        &::placeholder {
+            @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+        }
+
+        &:focus {
+            border: none;
+            outline: 2px solid $primary-colour-blue;
+        }
+    }
+}
+
 
 .user-holdings-table-container {
     padding: 1.5rem 0rem;
