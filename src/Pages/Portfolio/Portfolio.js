@@ -5,7 +5,7 @@ import MainButton from "../../Components/MainButton/MainButton"
 import "./Portfolio.scss";
 import UserHoldingsTable from "../../Components/UserHoldingsTable/UserHoldingsTable";
 
-function Portfolio() {
+function Portfolio({coinsList}) {
   const [userHoldings, setUserHoldings] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -69,7 +69,7 @@ function Portfolio() {
   return (
     <main className="portfolio-page">
       <h2 className="portfolio-page__title">Your Portfolio</h2>
-      <UserHoldingsTable userHoldings={userHoldings}/>
+      <UserHoldingsTable userHoldings={userHoldings} coinsList={coinsList}/>
     </main>
   );
 

@@ -1,23 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { priceFormat, roundedDollarFormat, percentageFormat } from "../../Utils/NumberFormatting";
 import "./MarketsTable.scss";
 
-function MarketsTable() {
-  const [coinsList, setCoinsList] = useState(null);
-
-  useEffect(() => {
-    axios
-    .get("http://localhost:8080/coins")
-    .then((response) => {
-        if (response.status === 200) {
-            setCoinsList(response.data);
-        }
-    })
-    .catch((error) => {
-        return <h2>{error.message}</h2>
-    });
-  }, []);
+function MarketsTable({coinsList}) {
 
   if (!coinsList) {
     return <h2>Loading market data...</h2>

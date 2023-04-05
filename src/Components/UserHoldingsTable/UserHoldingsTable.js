@@ -1,7 +1,7 @@
 import UserHoldingsTableRow from "../UserHoldingsTableRow/UserHoldingsTableRow";
 import "./UserHoldingsTable.scss";
 
-function UserHoldingsTable({ userHoldings }) {
+function UserHoldingsTable({ userHoldings, coinsList }) {
   return (
     <div className="user-holdings-table-container">
       <table className="user-holdings-table">
