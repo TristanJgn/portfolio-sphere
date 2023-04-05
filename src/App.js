@@ -32,6 +32,16 @@ function App() {
     getCoinData();
   }, []); // Makes the initial call on page mount (first time user opens the site)
 
+  useEffect(() => {
+    let interval = setInterval(() => {
+      getCoinData();
+    }, 60000); // Makes a call to the API every minute
+
+    return () => {
+      clearInterval(interval); // Clears the interval when the component unmounts
+    };
+  }, []); // Creates the interval timer on mount
+
   // setInterval(() => {
   //   getCoinData();
   // }, 300000); // Makes a subsequent call to the API every 5 minutes to refresh the data
