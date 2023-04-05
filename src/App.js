@@ -15,7 +15,7 @@ import "./App.scss";
 function App() {
   const [coinsList, setCoinsList] = useState(null);
 
-  useEffect(() => {
+  const getCoinData = () => {
     axios
       .get("http://localhost:8080/coins")
       .then((response) => {
@@ -26,7 +26,15 @@ function App() {
       .catch((error) => {
         return <h2>{error.message}</h2>;
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    getCoinData();
+  }, []); // Makes the initial call on page mount (first time user opens the site)
+
+  // setInterval(() => {
+  //   getCoinData();
+  // }, 300000); // Makes a subsequent call to the API every 5 minutes to refresh the data
 
   return (
     <BrowserRouter>
@@ -35,8 +43,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/markets" element={<Markets coinsList={coinsList}/>} />
-        <Route path="/portfolio" element={<Portfolio coinsList={coinsList}/>} />
+        <Route path="/markets" element={<Markets coinsList={coinsList} />} />
+        <Route
+          path="/portfolio"
+          element={<Portfolio coinsList={coinsList} />}
+        />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
