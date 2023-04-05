@@ -21,7 +21,9 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
 
   const coinNames = coinsList.map((coin) => coin.name); // Grab all the possible coin names
   const existingCoinNames = userHoldings.map((coin) => coin.coin_name); // Grab the coins which the user already has in their portfolio
-  const filteredCoinNames = coinNames.filter(name => !existingCoinNames.includes(name)); // Filter out the existing coins to prevent a user from adding already in their portfolio
+  const filteredCoinNames = coinNames.filter(name => !existingCoinNames.includes(name)); // Filter out the existing coins to prevent a user from adding a coin that is already in their portfolio
+
+  const filteredUserHoldings = userHoldings.filter(holding => holding.coin_name.includes(searchedCoin)); // Enables search functionality by filtering out holdings based on name of coin user is searching
 
   return (
     <section className="user-holdings-section">
@@ -64,7 +66,7 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
             </tr>
           </thead>
           <tbody className="user-holdings-table__body-container">
-            {userHoldings.map((coin) => (
+            {filteredUserHoldings.map((coin) => (
               <UserHoldingsTableRow key={coin.coin_id} coin={coin} />
             ))}
           </tbody>
