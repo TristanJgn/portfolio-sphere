@@ -18,8 +18,10 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
   if (!coinsList) {
     return <h2>Loading portfolio...</h2>
   }
-  
-  const coinNames = coinsList.map((coin) => coin.name)
+
+  const coinNames = coinsList.map((coin) => coin.name); // Grab all the possible coin names
+  const existingCoinNames = userHoldings.map((coin) => coin.coin_name); // Grab the coins which the user already has in their portfolio
+  const filteredCoinNames = coinNames.filter(name => !existingCoinNames.includes(name)); // Filter out the existing coins to prevent a user from adding already in their portfolio
 
   return (
     <section className="user-holdings-section">
@@ -47,7 +49,7 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
         onClose={onCloseAdd}
         show={showAdd}
         setShow={setShowAdd}
-        coinNames={coinNames}
+        coinNames={filteredCoinNames}
       />
       <div className="user-holdings-table-container">
         <table className="user-holdings-table">

@@ -4,7 +4,7 @@ import "./AddModal.scss";
 
 function AddModal({ coinNames, show, setShow, onClose }) {
   const [coinAmount, setCoinAmount] = useState(0);
-  const [selectedCoin, setSelectedCoin] = useState(null);
+  const [selectedCoin, setSelectedCoin] = useState(coinNames[0]);
 
   const handleAmountChange = (event) => {
     if (event.target.value === 0) {
@@ -20,9 +20,14 @@ function AddModal({ coinNames, show, setShow, onClose }) {
   const handleCancel = () => {
     setShow(false);
     setCoinAmount(0);
+    setSelectedCoin(coinNames[0]);
   };
 
   if (show === false) {
+    return null;
+  }
+
+  if (!coinNames) {
     return null;
   }
 
@@ -43,7 +48,7 @@ function AddModal({ coinNames, show, setShow, onClose }) {
               </label>
               <select
                 className="add-modal__input add-modal__dropdown"
-                value={selectedCoin}
+                value={selectedCoin || coinNames[0]}
                 onChange={handleSelectedCoin}
               >
                 {coinNames.map((coinName, index) => (
@@ -59,7 +64,7 @@ function AddModal({ coinNames, show, setShow, onClose }) {
             </div>
             <div className="add-modal__input-group">
               <label className="add-modal__label" htmlFor="coinAmount">
-                Amount of coin
+                Amount of {selectedCoin}
               </label>
               <input
                 className="add-modal__input"
