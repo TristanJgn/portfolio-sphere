@@ -50,6 +50,7 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
         show={showAdd}
         setShow={setShowAdd}
         coinNames={filteredCoinNames}
+        coinsList={coinsList}
       />
       <div className="user-holdings-table-container">
         <table className="user-holdings-table">
