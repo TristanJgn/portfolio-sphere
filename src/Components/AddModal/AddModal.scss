@@ -1,0 +1,156 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 0;
+    width: 100vw;
+    height: 35%;
+
+    @include tablet {
+        padding: 0 3rem;
+    }
+
+    &__content {
+        text-align: center;
+        height: 100%;
+        padding: 1.5rem 1rem;
+        background-color: $secondary-colour-dark-grey;
+        position: relative;
+
+        @include tablet {
+            width: 42rem;
+            height: 16.375rem;
+            padding: 2.5rem 4rem;
+            margin-top: 11.5625rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__header {
+        margin: 2.25rem 0 0 0;
+
+        @include tablet {
+            margin-top: 0;
+        }
+
+        &-title {
+            @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 600);
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 2rem, 2.5rem, 600);
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 5rem;
+        bottom: 0;
+        padding-bottom: 1.5rem;
+
+        @include tablet {
+            position: static;
+            padding-bottom: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &__cancel {
+        @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 600);
+        height: 2.25rem;
+        width: 47.52%;
+        border: 1px solid $secondary-colour-light-grey;
+        border-radius: 1.25rem;
+        background-color: $primary-colour-white;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        @include tablet {
+            height: 2.375rem;
+            width: 4.5rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__add {
+        @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600);
+        height: 2.25rem;
+        width: 47.52%;
+        border-radius: 1.25rem;
+        background-color: $primary-colour-blue;
+        border: none;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        @include tablet {
+            height: 2.375rem;
+            width: 4.5rem;
+        }
+    }
+
+    &__close {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 1.25rem;
+        top: 1.25rem;
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &__input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 600);
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+
+        @include tablet {
+            @include textStyle($primary-colour-white, 2rem, 2.5rem, 600);
+        }
+    }
+
+    &__input {
+        height: 36px;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 2px solid $primary-colour-blue;
+        @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+
+        @include tablet {
+            height: 38px;
+        }
+
+        &::placeholder {
+            @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+        }
+
+        &:focus {
+            border: none;
+            outline: 2px solid $primary-colour-blue;
+        }
+    }
+
+    &__dropdown {
+        appearance: none;
+        overflow: auto;
+    }
+
+    &__dropdown-item {
+        @include textStyle($secondary-colour-dark-grey, 0.8125rem, 1.25rem, 400);
+    }
+}

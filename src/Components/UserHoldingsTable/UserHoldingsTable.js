@@ -2,14 +2,24 @@ import { useState } from "react";
 import UserHoldingsTableRow from "../UserHoldingsTableRow/UserHoldingsTableRow";
 import searchIcon from "../../assets/icons/search.svg"
 import "./UserHoldingsTable.scss";
+import MainButton from "../MainButton/MainButton";
+import AddModal from "../AddModal/AddModal";
 
 function UserHoldingsTable({ userHoldings, coinsList }) {
   const [searchedCoin, setSearchedCoin] = useState("");
+  const [showAdd, setShowAdd] = useState(false);
+
+  const onCloseAdd = () => setShowAdd(false);
 
   const handleChange = (event) => {
     setSearchedCoin(event.target.value);
   }
 
+  if (!coinsList) {
+    return <h2>Loading portfolio...</h2>
+  }
+  
+  const coinNames = coinsList.map((coin) => coin.name)
 
   return (
     <section className="user-holdings-section">
@@ -29,6 +39,16 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
           value={searchedCoin}
         ></input>
       </div>
+      <MainButton
+        buttonText={"+ Add coin to portfolio"}
+        onClickAction={() => setShowAdd(true)}
+      />
+      <AddModal
+        onClose={onCloseAdd}
+        show={showAdd}
+        setShow={setShowAdd}
+        coinNames={coinNames}
+      />
       <div className="user-holdings-table-container">
         <table className="user-holdings-table">
           <thead className="user-holdings-table__header-container">
