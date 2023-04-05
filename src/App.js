@@ -35,16 +35,12 @@ function App() {
   useEffect(() => {
     let interval = setInterval(() => {
       getCoinData();
-    }, 60000); // Makes a call to the API every minute
+    }, 300000); // Makes a call to the API every 5 minutes
 
     return () => {
       clearInterval(interval); // Clears the interval when the component unmounts
     };
   }, []); // Creates the interval timer on mount
-
-  // setInterval(() => {
-  //   getCoinData();
-  // }, 300000); // Makes a subsequent call to the API every 5 minutes to refresh the data
 
   return (
     <BrowserRouter>
