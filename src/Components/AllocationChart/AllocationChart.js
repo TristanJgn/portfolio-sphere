@@ -51,7 +51,7 @@ function AllocationChart ({ chartData }) {
                 align: "end",
                 font: {
                   family: "Inter",
-                  size: 14,
+                  size: 13,
                   weight: 500,
                 },
               },
@@ -64,7 +64,7 @@ function AllocationChart ({ chartData }) {
                   font: {
                     family: "Inter",
                     size: 14,
-                    weight: 500,
+                    weight: 600,
                   },
                 },
               },
