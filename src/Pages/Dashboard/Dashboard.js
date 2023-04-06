@@ -57,26 +57,50 @@ function Dashboard() {
 
   // Add market value to the objects (price * coin amount)
   const dashboardInfoWithMarketValues = dashboardInfo.map((coin) => {
-    const newList = {
-      id: coin.id,
-      name: coin.name,
-      symbol: coin.symbol,
-      price: coin.price,
-      amount: coin.coin_amount,
+    return {
+      ...coin, 
       market_value: coin.price * coin.coin_amount,
-      percent_change_24h: coin.percent_change_24h,
     };
-
-    return newList;
   });
 
   // Sort the array in descending order based on market values
-  dashboardInfoWithMarketValues.sort(function(a, b) {
-    const marketValue1 = a.market_value, marketValue2 = b.market_value;
+  dashboardInfoWithMarketValues.sort(function (a, b) {
+    const marketValue1 = a.market_value,
+      marketValue2 = b.market_value;
     if (marketValue1 > marketValue2) return -1;
     if (marketValue1 < marketValue2) return 1;
     return 0;
-  })
+  });
+
+  // Calculate the total portfolio value
+  const marketValuesArray = dashboardInfoWithMarketValues.map(
+    (holding) => holding.market_value
+  );
+  const totalPortfolioValue = marketValuesArray.reduce((a, b) => a + b);
+
+  // Add percent of portfolio to the objects (market value / total portfolio value)
+  const finalDashboardInfo = dashboardInfoWithMarketValues.map((coin) => {
+    return {
+      ...coin,
+      portfolio_percent: coin.market_value / totalPortfolioValue,
+    };
+  });
+
+  console.log(finalDashboardInfo);
+
+  // Find 24h % change of portfolio using market change for each coin and the weight of the holding in the portfolio
+  function portfolioChange() {
+    let weightedValueSum = 0;
+
+    for (let i = 0; i < finalDashboardInfo.length; i++) {
+      const weightedValue = finalDashboardInfo[i].portfolio_percent * finalDashboardInfo[i].percent_change_24h;
+      weightedValueSum += weightedValue;
+    }
+
+    return weightedValueSum;
+  }
+
+  const portfolioChange24h = portfolioChange();
 
   return (
     <main className="dashboard-page">
