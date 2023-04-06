@@ -12,7 +12,7 @@ import numHoldingsIcon from "../../assets/icons/coins.svg"
 import topHoldingIcon from "../../assets/icons/coin-stack.svg"
 import percentChangeIcon from "../../assets/icons/circle-of-arrows.svg"
 import "./Dashboard.scss";
-
+import AllocationChart from "../../Components/AllocationChart/AllocationChart";
 
 function Dashboard() {
   const [dashboardInfo, setDashboardInfo] = useState(null);
@@ -112,6 +112,26 @@ function Dashboard() {
 
   const portfolioChange24h = portfolioChange();
 
+  // Filter out total array to only take the top 3 holdings to display in the allocation chart
+  const finalChartInfo = finalDashboardInfo.slice(0, 3);
+
+  // Filter object to create data for allocation chart
+  const chartData = {
+    labels: finalChartInfo.map((coin) => coin.symbol),
+    datasets: [
+      {
+        label: "% of Portfolio",
+        data: finalChartInfo.map((coin) =>
+          (coin.portfolio_percent * 100).toFixed(2)
+        ),
+        backgroundColor: ["#3B60E4", "#7765E3", "#C8ADC0"],
+        borderColor: "white",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+
   return (
     <main className="dashboard-page">
       <h1 className="dashboard-page__title">Dashboard</h1>
@@ -181,6 +201,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      <AllocationChart chartData={chartData} />
       <DashboardTable finalDashboardInfo={finalDashboardInfo} />
     </main>
   );

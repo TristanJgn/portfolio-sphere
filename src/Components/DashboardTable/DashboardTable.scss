@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .dashboard-table-section {
+    background-color: $site-background-colour;
     &__search {
         display: flex;
         position: relative;
