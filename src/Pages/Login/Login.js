@@ -63,7 +63,7 @@ function Login() {
           if (response.status === 200) {
             sessionStorage.setItem("authToken", response.data.token); // Set session to have JWT token so user can start using the site
             setTimeout(() => {
-              navigate("/"); // Take user back home after successful login
+              navigate("/dashboard"); // Take user to their dashboard after successful login
             }, 2000);
           }
         })
