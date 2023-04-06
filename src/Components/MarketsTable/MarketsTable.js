@@ -23,9 +23,11 @@ function MarketsTable({coinsList}) {
     };
   })
 
-  const filteredCoinList = coinsListWithRank.filter((coin) =>
-    coin.name.toLowerCase().startsWith(searchedCoin.toLowerCase())
-  ); // Enables search functionality by filtering out holdings based on name of coin user is searching using toLowerCase to eliminate case sensitivity
+  const filteredCoinList = coinsListWithRank.filter(
+    (coin) =>
+      coin.name.toLowerCase().startsWith(searchedCoin.toLowerCase()) ||
+      coin.symbol.toLowerCase().startsWith(searchedCoin.toLowerCase())
+  ); // Enables search functionality by filtering out holdings based on name or symbol of coin user is searching using toLowerCase to eliminate case sensitivity
 
   return (
     <section className="markets-table-section">

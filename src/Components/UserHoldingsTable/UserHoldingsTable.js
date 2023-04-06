@@ -23,7 +23,11 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
   const existingCoinNames = userHoldings.map((coin) => coin.coin_name); // Grab the coins which the user already has in their portfolio
   const filteredCoinNames = coinNames.filter(name => !existingCoinNames.includes(name)); // Filter out the existing coins to prevent a user from adding a coin that is already in their portfolio
 
-  const filteredUserHoldings = userHoldings.filter(holding => holding.coin_name.toLowerCase().startsWith(searchedCoin.toLowerCase())); // Enables search functionality by filtering out holdings based on name of coin user is searching using toLowerCase to eliminate case sensitivity
+  const filteredUserHoldings = userHoldings.filter(
+    (holding) =>
+      holding.coin_name.toLowerCase().startsWith(searchedCoin.toLowerCase()) ||
+      holding.coin_symbol.toLowerCase().startsWith(searchedCoin.toLowerCase())
+  ); // Enables search functionality by filtering out holdings based on name or symbol of coin user is searching using toLowerCase to eliminate case sensitivity
 
   return (
     <section className="user-holdings-section">
