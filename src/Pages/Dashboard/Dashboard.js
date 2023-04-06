@@ -43,7 +43,9 @@ function Dashboard() {
         <h1 className="dashboard-page__title">
           You must be logged in to view your dashboard.
         </h1>
-        <MainButton buttonText={"Login"} onClickAction={handleLogin} />
+        <div className="dashboard-page__button-container">
+          <MainButton buttonText={"Login"} onClickAction={handleLogin} />
+        </div>
       </main>
     );
   }
