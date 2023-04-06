@@ -1,0 +1,123 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.dashboard-table-section {
+    &__search {
+        display: flex;
+        position: relative;
+        padding: 0rem 1.5rem;
+    }
+
+    &__icon {
+        width: 25px;
+        position: absolute;
+        top: 2.4rem;
+        left: 2.25rem;
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: 2rem;
+        height: 36px;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 2px solid $primary-colour-blue;
+        @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+        text-align: center;
+
+        @include tablet {
+            height: 38px;
+        }
+
+        &::placeholder {
+            @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+        }
+
+        &:focus {
+            border: none;
+            outline: 2px solid $primary-colour-blue;
+        }
+    }
+}
+
+.dashboard-table-container {
+    padding: 1.5rem 0rem;
+    overflow-x: auto;
+    background-color: $site-background-colour;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.dashboard-table {
+    &__header-column {
+        @include textStyle($primary-colour-white, 1.125rem, 1.75rem, 700);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+    }
+
+    &__header-column--sticky--first {
+        position: sticky;
+        left: 0;
+        padding: 0.5rem 1.5rem;
+        z-index: 1;
+        background-color: $site-background-colour;
+    }
+
+    &__header-column--sticky--second {
+        position: sticky;
+        left: 5rem;
+        z-index: 1;
+        text-align: left;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column {
+        @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
+        text-align: center;
+        margin-right: 1.5rem;
+        padding: 0.5rem 1rem;
+
+        &--positive {
+            color: $secondary-colour-green;
+            opacity: 80%;
+        }
+
+        &--negative {
+            color: red;
+        }
+    }
+
+    &__body-column--sticky--first {
+        position: sticky;
+        left: 0;
+        padding: 0.5rem 1.5rem;
+        z-index: 1;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column--sticky--second {
+        position: sticky;
+        left: 5rem;
+        z-index: 1;
+        text-align: left;
+        background-color: $site-background-colour;
+    }
+
+    &__body-column-coin {
+        display: flex;
+        flex-direction: column;
+
+        &__name {
+            @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
+        }
+
+        &__symbol {
+            @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
+        }
+    }
+}

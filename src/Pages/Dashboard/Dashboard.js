@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import MainButton from "../../Components/MainButton/MainButton";
 import "./Dashboard.scss";
+import DashboardTable from "../../Components/DashboardTable/DashboardTable";
 
 function Dashboard() {
   const [dashboardInfo, setDashboardInfo] = useState(null);
@@ -86,8 +87,6 @@ function Dashboard() {
     };
   });
 
-  console.log(finalDashboardInfo);
-
   // Find 24h % change of portfolio using market change for each coin and the weight of the holding in the portfolio
   function portfolioChange() {
     let weightedValueSum = 0;
@@ -105,6 +104,7 @@ function Dashboard() {
   return (
     <main className="dashboard-page">
       <h1 className="dashboard-page__title">Dashboard</h1>
+      <DashboardTable finalDashboardInfo={finalDashboardInfo} />
     </main>
   );
 }
