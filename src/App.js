@@ -32,6 +32,7 @@ function App() {
     getCoinData();
   }, []); // Makes the initial call on page mount (first time user opens the site)
 
+  /*
   useEffect(() => {
     let interval = setInterval(() => {
       getCoinData();
@@ -41,6 +42,7 @@ function App() {
       clearInterval(interval); // Clears the interval when the component unmounts
     };
   }, []); // Creates the interval timer on mount
+*/
 
   return (
     <BrowserRouter>
