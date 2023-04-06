@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {
+  roundedDollarFormat,
+  percentageFormat,
+} from "../../Utils/NumberFormatting";
 import MainButton from "../../Components/MainButton/MainButton";
-import "./Dashboard.scss";
 import DashboardTable from "../../Components/DashboardTable/DashboardTable";
+import dollarIcon from "../../assets/icons/portfolio.svg"
+import numHoldingsIcon from "../../assets/icons/coins.svg"
+import topHoldingIcon from "../../assets/icons/coin-stack.svg"
+import percentChangeIcon from "../../assets/icons/circle-of-arrows.svg"
+import "./Dashboard.scss";
+
 
 function Dashboard() {
   const [dashboardInfo, setDashboardInfo] = useState(null);
@@ -106,6 +115,72 @@ function Dashboard() {
   return (
     <main className="dashboard-page">
       <h1 className="dashboard-page__title">Dashboard</h1>
+      <div className="dashboard-card-main-container">
+        <div className="dashboard-card-container">
+          <div className="dashboard-card">
+            <div className="dashboard-card__heading-container">
+              <h2 className="dashboard-card__title">Portfolio Value</h2>
+              <img
+                src={dollarIcon}
+                alt="portfolio value icon"
+                className="dashboard-card__icon"
+              />
+            </div>
+            <p className="dashboard-card__description">
+              {roundedDollarFormat(totalPortfolioValue)}
+            </p>
+          </div>
+          <div className="dashboard-card">
+            <div className="dashboard-card__heading-container">
+              <h2 className="dashboard-card__title">Number of Holdings</h2>
+              <img
+                src={numHoldingsIcon}
+                alt="number of holdings icon"
+                className="dashboard-card__icon"
+              />
+            </div>
+            <p className="dashboard-card__description">
+              {finalDashboardInfo.length}
+            </p>
+          </div>
+        </div>
+        <div className="dashboard-card-container">
+          <div className="dashboard-card">
+            <div className="dashboard-card__heading-container">
+              <h2 className="dashboard-card__title">Top Holding</h2>
+              <img
+                src={topHoldingIcon}
+                alt="top holding icon"
+                className="dashboard-card__icon"
+              />
+            </div>
+            <p className="dashboard-card__description">
+              {`${finalDashboardInfo[0].coin_amount * 1} ${
+                finalDashboardInfo[0].symbol
+              } (${roundedDollarFormat(finalDashboardInfo[0].market_value)})`}
+            </p>
+          </div>
+          <div className="dashboard-card">
+            <div className="dashboard-card__heading-container">
+              <h2 className="dashboard-card__title">24h Change</h2>
+              <img
+                src={percentChangeIcon}
+                alt="percent change icon"
+                className="dashboard-card__icon--smaller"
+              />
+            </div>
+            <p
+              className={`dashboard-card__description ${
+                portfolioChange > 0
+                  ? "dashboard-card__description--positive"
+                  : "dashboard-card__description--negative"
+              }`}
+            >
+              {percentageFormat(portfolioChange24h)}
+            </p>
+          </div>
+        </div>
+      </div>
       <DashboardTable finalDashboardInfo={finalDashboardInfo} />
     </main>
   );
