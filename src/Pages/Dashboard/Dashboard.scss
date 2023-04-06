@@ -4,4 +4,11 @@
 
 .dashboard-page {
     background-color: $site-background-colour;
+    height: 100vh;
+
+    &__title {
+        padding: 1.5rem;
+        padding-bottom: 0;
+        @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+    }
 }
