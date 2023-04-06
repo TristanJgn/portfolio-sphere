@@ -4,6 +4,10 @@
 
 .footer {
     background-color: $site-background-colour;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1.5rem;
 
     &__text {
         @include textStyle($primary-colour-white, 0.6875rem, 1rem, 400);

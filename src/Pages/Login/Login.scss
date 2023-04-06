@@ -3,12 +3,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .login-page {
-    background-color: $site-background-colour;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -5rem;
-    height: 100vh;
 }
 
 .login-form-container {

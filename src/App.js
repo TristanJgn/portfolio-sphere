@@ -46,20 +46,22 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/markets" element={<Markets coinsList={coinsList} />} />
-        <Route
-          path="/portfolio"
-          element={<Portfolio coinsList={coinsList} />}
-        />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/markets" element={<Markets coinsList={coinsList} />} />
+          <Route
+            path="/portfolio"
+            element={<Portfolio coinsList={coinsList} />}
+          />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

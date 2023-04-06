@@ -3,12 +3,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .register-page {
-    background-color: $site-background-colour;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -5rem;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .register-form-container {
