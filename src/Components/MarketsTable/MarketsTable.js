@@ -17,20 +17,10 @@ function MarketsTable({coinsList}) {
   // Add rank to the list at the start so it holds even when the list becomes filtered based on user search
   const coinsListWithRank = coinsList.map((coin, index) => { 
 
-    const newList = {
-        id: coin.id,
-        name: coin.name,
-        symbol: coin.symbol,
-        price: coin.price,
-        percent_change_1h: coin.percent_change_1h,
-        percent_change_24h: coin.percent_change_24h,
-        percent_change_7d: coin.percent_change_7d,
-        market_cap: coin.market_cap,
-        volume_24h: coin.volume_24h,
+    return {
+        ...coin,
         rank: index + 1,
     };
-    
-    return newList;
   })
 
   const filteredCoinList = coinsListWithRank.filter((coin) =>
