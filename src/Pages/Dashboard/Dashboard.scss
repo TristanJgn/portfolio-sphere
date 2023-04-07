@@ -3,6 +3,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .dashboard-page {
+    margin-bottom: 1.5rem;
+    
     &__title {
         padding: 1.5rem;
         padding-bottom: 0;
@@ -64,6 +66,7 @@
 
     &--smaller {
         width: 30px;
+        opacity: 0.8;
     }
   }
 }
