@@ -37,7 +37,12 @@ function UserHoldingsTableRow({ coin }) {
             alt="edit icon"
             onClick={() => setShowEdit(true)}
           />
-          <EditModal onClose={onCloseEdit} show={showEdit} setShow={setShowEdit} coin={coin} />
+          <EditModal
+            onClose={onCloseEdit}
+            show={showEdit}
+            setShow={setShowEdit}
+            coin={coin}
+          />
           <img
             className="user-holdings-table__body-column-actions__delete"
             src={deleteIcon}

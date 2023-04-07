@@ -66,7 +66,9 @@ function UserHoldingsTable({ userHoldings, coinsList }) {
                 Coin
               </th>
               <th className="user-holdings-table__header-column">Amount</th>
-              <th className="user-holdings-table__header-column">Actions</th>
+              <th className="user-holdings-table__header-column user-holdings-table__header-column--last">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody className="user-holdings-table__body-container">

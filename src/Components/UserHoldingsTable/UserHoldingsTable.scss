@@ -43,10 +43,10 @@
 
 .user-holdings-table-container {
     padding: 1.5rem 0rem;
-    background-color: $site-background-colour;
 }
 
 .user-holdings-table {
+    width: 100%;
     &__header-column {
         @include textStyle($primary-colour-white, 1.125rem, 1.75rem, 700);
         text-align: center;
@@ -56,6 +56,12 @@
         white-space: nowrap;
 
         &--left {
+            text-align: left;
+        }
+
+        &--last {
+            margin-right: 0;
+            padding-right: 0;
             text-align: left;
         }
     }
