@@ -82,7 +82,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
   return (
     <div className="add-modal" onClick={() => onClose()}>
       <div className="add-modal__content" onClick={(e) => e.stopPropagation()}>
-        <button className="add-modal__close" onClick={() => onClose()}>
+        <button className="add-modal__close" onClick={() => handleCancel()}>
           <img src={closeIcon} alt="close icon" />
         </button>
         <div className="add-modal__top-container">

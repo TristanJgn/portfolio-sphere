@@ -4,7 +4,7 @@ import closeIcon from "../../assets/icons/close-white.svg";
 import "./EditModal.scss";
 
 function EditModal({ coin, show, setShow, onClose }) {
-  const [coinAmount, setCoinAmount] = useState(coin.coin_amount);
+  const [coinAmount, setCoinAmount] = useState(coin.coin_amount * 1); // Multiply by 1 to remove any trailing zeros
 
   const handleChange = (event) => {
     if (event.target.value === 0) {
@@ -15,7 +15,7 @@ function EditModal({ coin, show, setShow, onClose }) {
 
   const handleCancel = () => {
     setShow(false);
-    setCoinAmount(coin.coin_amount);
+    setCoinAmount(coin.coin_amount * 1); // Multiply by 1 to remove any trailing zeros
   }
 
   if (show === false) {
@@ -49,7 +49,7 @@ function EditModal({ coin, show, setShow, onClose }) {
   return (
     <div className="edit-modal" onClick={() => onClose()}>
       <div className="edit-modal__content" onClick={(e) => e.stopPropagation()}>
-        <button className="edit-modal__close" onClick={() => onClose()}>
+        <button className="edit-modal__close" onClick={() => handleCancel()}>
           <img src={closeIcon} alt="close icon" />
         </button>
         <div className="edit-modal__top-container">
