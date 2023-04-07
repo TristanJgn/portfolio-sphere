@@ -19,7 +19,8 @@
   @include tablet {
     margin: 2.5rem 0rem;
     height: 18rem;
-    width: 13rem;
+    width: 27.5vw;
+    max-width: 18rem;
   }
 
   &:hover {
