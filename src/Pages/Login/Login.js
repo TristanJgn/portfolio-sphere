@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SuccessModal from "../../Components/SuccessModal/SuccessModal";
 import "./Login.scss";
 
 function Login() {
@@ -9,6 +10,7 @@ function Login() {
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [invalidCredentials, setInvalidCredentials] = useState(false);
+  const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,9 +63,11 @@ function Login() {
         })
         .then((response) => {
           if (response.status === 200) {
+            setShow(true); // Show success popup
             sessionStorage.setItem("authToken", response.data.token); // Set session to have JWT token so user can start using the site
             setTimeout(() => {
               navigate("/dashboard"); // Take user to their dashboard after successful login
+              setShow(false); // Hide the success modal so it isn't showing if a user returns to the page
             }, 2000);
           }
         })
@@ -169,6 +173,7 @@ function Login() {
           </Link>
         </h3>
       </section>
+      <SuccessModal show={show} titleText={"Welcome back!"} bodyText={"Taking you to your dashboard..."}/>
     </main>
   );
 }

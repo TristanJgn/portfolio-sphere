@@ -1,0 +1,63 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.success-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 15%;
+    bottom: 0;
+    width: 100vw;
+    height: 40%;
+
+    @include tablet {
+        padding: 0 3rem;
+    }
+
+    &__content {
+        margin: auto;
+        height: 100%;
+        padding: 1.5rem 1rem;
+        background-color: $secondary-colour-dark-grey;
+        position: relative;
+        text-align: center;
+
+        @include tablet {
+            width: 42rem;
+            height: 16.375rem;
+            padding: 2.5rem 4rem;
+            margin-top: 11.5625rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__header {
+        margin: 2.25rem 0 1rem 0;
+
+        @include tablet {
+            margin-top: 0;
+        }
+
+        &-title {
+            @include textStyle($secondary-colour-green, 1.75rem, 2.25rem, 600);
+
+            @include tablet {
+                @include textStyle($secondary-colour-green, 2rem, 2.5rem, 600);
+            }
+        }
+    }
+
+    &__body {
+        &-p {
+            @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 400);
+            margin-top: 5rem;
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 2rem, 2.5rem, 600);
+            }
+        }
+    }
+}

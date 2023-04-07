@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SuccessModal from "../../Components/SuccessModal/SuccessModal";
 import "./Register.scss";
 
 function Register() {
@@ -11,6 +12,7 @@ function Register() {
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
   const [existingEmail, setExistingEmail] = useState(false);
+  const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
 
@@ -107,9 +109,11 @@ function Register() {
       })
       .then((response) => {
         if (response.status === 201) {
+          setShow(true); // Show success popup
           sessionStorage.setItem("authToken", response.data.token); // Set session to have JWT token so user can start using the site
           setTimeout(() => {
             navigate("/"); // Take user back home after successful registration
+            setShow(false); // Hide the success modal so it isn't showing if a user returns to the page
           }, 2000)
         }
       })
@@ -276,6 +280,11 @@ function Register() {
           </Link>
         </h3>
       </section>
+      <SuccessModal
+        show={show}
+        titleText={"Account successfully created"}
+        bodyText={"Welcome to Portfolio Sphere!"}
+      />
     </main>
   );
 }
