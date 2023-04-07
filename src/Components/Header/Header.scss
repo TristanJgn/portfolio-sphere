@@ -7,7 +7,11 @@
     justify-content: space-between;
     padding: 1.5rem;
     padding-bottom: 0;
-    background-color: $site-background-colour;
+
+    @include tablet {
+        padding: 2rem;
+        padding-bottom: 0;
+    }
 
     &__logo {
         width: 175px;

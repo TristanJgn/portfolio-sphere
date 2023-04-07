@@ -1,0 +1,43 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.navigation {
+    display: none;
+
+    @include tablet {
+        display: flex;
+        width: 65%;
+    }
+
+    &__list {
+        list-style: none;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item {
+        &--logout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 25px;
+    }
+
+    &__text {
+        @include textStyle($primary-colour-white, 1rem, 1.375rem, 600);
+    }
+}

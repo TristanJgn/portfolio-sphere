@@ -9,6 +9,10 @@
   padding: 0.625rem 0.9375rem;
   margin-right: -1.1rem;
 
+  @include tablet {
+    display: none;
+  }
+
   &__line {
     width: 1.5625rem;
     height: 0.1875rem;
@@ -48,6 +52,10 @@
   padding: 5rem 2rem;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
+
+  @include tablet {
+    display: none;
+  }
 
   &--active {
     transform: translateX(0);
