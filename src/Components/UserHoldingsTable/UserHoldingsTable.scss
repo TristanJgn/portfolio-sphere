@@ -54,6 +54,7 @@
         padding: 0.5rem 1rem;
         padding-left: 0;
         white-space: nowrap;
+        width: 30%;
 
         &--left {
             text-align: left;
@@ -62,7 +63,7 @@
         &--last {
             margin-right: 0;
             padding-right: 0;
-            text-align: left;
+            text-align: center;
         }
     }
 }

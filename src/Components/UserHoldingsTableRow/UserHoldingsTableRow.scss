@@ -3,12 +3,15 @@
 @use "../../styles/partials/mixins" as *;
 
 .user-holdings-table {
+    width: 100%;
+    
     &__body-column {
         @include textStyle($primary-colour-white, 0.9375rem, 1.625rem, 400);
         text-align: center;
         margin-right: 1.5rem;
         padding: 0.5rem 1rem;
         padding-left: 0;
+        width: 30%;
     }
 
     &__body-column-coin {
@@ -28,7 +31,7 @@
 
     &__body-column-actions {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         &__edit {
             width: 25px;
