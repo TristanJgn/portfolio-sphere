@@ -38,30 +38,25 @@ function Portfolio({coinsList}) {
 
   if (!sessionStorage.authToken) {
     return (
-      <main className="portfolio-page">
-        <h1 className="portfolio-page__title">
-          You must be logged in to view your portfolio.
-        </h1>
-        <MainButton
-          buttonText={"Login"}
-          onClickAction={handleLogin}
-        />
+      <main className="portfolio-page--default">
+        <div className="portfolio-page--default__container">
+          <h1 className="portfolio-page--default__title">
+            You must be logged in to view your portfolio.
+          </h1>
+          <MainButton buttonText={"Login"} onClickAction={handleLogin} />
+        </div>
       </main>
     );
   }
 
   if (isLoading) {
     return (
-      <main className="portfolio-page">
-        <h2 className="portfolio-page__title">Getting your portfolio...</h2>
-      </main>
-    );
-  }
-
-  if (!userHoldings) {
-    return (
-      <main className="portfolio-page">
-        <h2 className="portfolio-page__title">Add coins to your portfolio</h2>
+      <main className="portfolio-page--default">
+        <div className="portfolio-page--default__container">
+          <h2 className="portfolio-page--default__title">
+            Getting your portfolio...
+          </h2>
+        </div>
       </main>
     );
   }

@@ -5,7 +5,37 @@
 .portfolio-page {
     padding: 1.5rem;
 
+    @include tablet {
+        padding: 2rem;
+    }
+
     &__title {
         @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
     }
+
+    &--default {
+        padding: 1.5rem;
+
+        @include tablet {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__container {
+            @include tablet {
+                padding: 2rem;
+                width: 25rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        &__title {
+            @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+        }
+    }
+
 }
