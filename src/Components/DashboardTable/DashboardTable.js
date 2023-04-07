@@ -54,7 +54,7 @@ function DashboardTable({ finalDashboardInfo }) {
         <table className="dashboard-table">
           <thead className="dashboard-table__header-container">
             <tr className="dashboard-table__header-row">
-              <th className="markets-table__header-column markets-table__header-column--sticky--first">
+              <th className="dashboard-table__header-column dashboard-table__header-column--sticky--first">
                 Rank
               </th>
               <th className="dashboard-table__header-column dashboard-table__header-column--sticky--second">
@@ -71,7 +71,7 @@ function DashboardTable({ finalDashboardInfo }) {
             {filteredDashboardInfo.map((coin) => {
               return (
                 <tr className="dashboard-table__body-row" key={coin.id}>
-                  <td className="markets-table__body-column markets-table__body-column--sticky--first">
+                  <td className="dashboard-table__body-column dashboard-table__body-column--sticky--first">
                     {coin.rank}
                   </td>
                   <td className="dashboard-table__body-column dashboard-table__body-column--sticky--second">

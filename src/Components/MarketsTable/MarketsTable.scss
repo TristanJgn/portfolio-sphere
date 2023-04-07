@@ -2,6 +2,11 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+table, th, td {
+  border-bottom: 1px solid $primary-colour-blue;
+  border-collapse: collapse;
+}
+
 .markets-table-section {
     &__search {
         display: flex;
@@ -81,6 +86,7 @@
         text-align: center;
         margin-right: 1.5rem;
         padding: 0.5rem 1rem;
+        background-color: $secondary-colour-dark-grey;
 
         &--positive {
             color: $secondary-colour-green;
@@ -97,7 +103,7 @@
         left: 0;
         padding: 0.5rem 1.5rem;
         z-index: 1;
-        background-color: $site-background-colour;
+        background-color: $secondary-colour-dark-grey;
     }
 
     &__body-column--sticky--second {
@@ -105,7 +111,7 @@
         left: 5rem;
         z-index: 1;
         text-align: left;
-        background-color: $site-background-colour;
+        background-color: $secondary-colour-dark-grey;
     }
 
     &__body-column-coin {
