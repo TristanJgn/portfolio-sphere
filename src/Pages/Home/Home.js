@@ -30,7 +30,7 @@ function Home() {
           icon={dashboardIcon}
           featureTitle={"Dashboard"}
           featureDescription={
-            "Valuable insights into your portfolio. View the allocation among your top holdings and the total value of your investments"
+            "Valuable insights into your portfolio. View the allocation among your top holdings, the total value of your investments, and more!"
           }
           link={"/dashboard"}
         />
