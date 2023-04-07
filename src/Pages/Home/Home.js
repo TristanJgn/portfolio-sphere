@@ -22,7 +22,7 @@ function Home() {
           icon={portfolioIcon}
           featureTitle={"Manage Portfolio"}
           featureDescription={
-            "Update your portfolio holdings when you buy or sell investments so Portfolio Sphere can keep you up to date"
+            "Update your portfolio holdings when you buy or sell investments so Portfolio Sphere can stay updated"
           }
           link={"/portfolio"}
         />
@@ -30,7 +30,7 @@ function Home() {
           icon={dashboardIcon}
           featureTitle={"Dashboard"}
           featureDescription={
-            "Valuable insights into your portfolio. View the allocation among your top holdings, the total value of your investments, and more!"
+            "View the allocation among your top holdings, the total value of your investments, and more!"
           }
           link={"/dashboard"}
         />

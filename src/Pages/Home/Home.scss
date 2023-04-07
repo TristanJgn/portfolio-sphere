@@ -4,4 +4,12 @@
 
 .home-page {
     padding-bottom: 1.5rem;
+
+    &__feature-cards-container {
+        @include tablet {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
 }
