@@ -6,6 +6,12 @@
     }
 }
 
+@mixin marketsTable {
+    @media (min-width: $breakpoint-markets-table) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: $breakpoint-desktop) {
         @content;

@@ -4,10 +4,22 @@
 
 .markets-page {
     padding-bottom: 1.5rem;
+
+    @include marketsTable {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     
     &__title {
         padding: 1.5rem;
         padding-bottom: 0;
         @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+
+        @include tablet {
+            padding: 2rem;
+            padding-bottom: 0;
+            @include textStyle($primary-colour-white, 2rem, 2.5rem, 700);
+        }
     }
 }

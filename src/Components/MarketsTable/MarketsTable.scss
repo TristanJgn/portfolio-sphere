@@ -8,10 +8,15 @@ table, th, td {
 }
 
 .markets-table-section {
+
     &__search {
         display: flex;
         position: relative;
         padding: 0rem 1.5rem;
+
+        @include tablet {
+            padding: 0rem 2rem;
+        }
     }
 
     &__icon {
@@ -19,6 +24,15 @@ table, th, td {
         position: absolute;
         top: 2.4rem;
         left: 2.25rem;
+
+        @include tablet {
+            left: 2.75rem;
+        }
+
+        @include marketsTable {
+            position: relative;
+            top: 1rem;
+        }
     }
 
     &__input {
@@ -33,10 +47,15 @@ table, th, td {
 
         @include tablet {
             height: 38px;
+            max-width: 69rem;
         }
 
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+
+            @include tablet {
+                @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
+            }
         }
 
         &:focus {
@@ -51,6 +70,10 @@ table, th, td {
     overflow-x: auto;
     background-color: $site-background-colour;
 
+    @include marketsTable {
+        margin: 0rem 2rem;
+    }
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -63,6 +86,10 @@ table, th, td {
         margin-right: 1.5rem;
         padding: 0.5rem 1rem;
         white-space: nowrap;
+
+        @include tablet {
+            @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 700);  
+        }
     }
 
     &__header-column--sticky--first {
@@ -71,6 +98,10 @@ table, th, td {
         padding: 0.5rem 1.5rem;
         z-index: 1;
         background-color: $site-background-colour;
+
+        @include tablet {
+            padding: 0.5rem 2rem;
+        }
     }
 
     &__header-column--sticky--second {
@@ -79,6 +110,10 @@ table, th, td {
         z-index: 1;
         text-align: left;
         background-color: $site-background-colour;
+
+        @include tablet {
+            left: 7rem;
+        }
     }
 
     &__body-column {
@@ -88,9 +123,12 @@ table, th, td {
         padding: 0.5rem 1rem;
         background-color: $secondary-colour-dark-grey;
 
+        @include tablet {
+            @include textStyle($primary-colour-white, 1rem, 1.75rem, 400);
+        }
+
         &--positive {
             color: $secondary-colour-green;
-            opacity: 80%;
         }
 
         &--negative {
@@ -104,6 +142,10 @@ table, th, td {
         padding: 0.5rem 1.5rem;
         z-index: 1;
         background-color: $secondary-colour-dark-grey;
+
+        @include tablet {
+            padding: 0.5rem 2rem;
+        }
     }
 
     &__body-column--sticky--second {
@@ -112,6 +154,10 @@ table, th, td {
         z-index: 1;
         text-align: left;
         background-color: $secondary-colour-dark-grey;
+
+        @include tablet {
+            left: 7rem;
+        }
     }
 
     &__body-column-coin {
@@ -120,10 +166,18 @@ table, th, td {
 
         &__name {
             @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 1.0625rem, 1.625rem, 600);
+            }
         }
 
         &__symbol {
             @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 0.875rem, 1.25rem, 500);   
+            }
         }
     }
 }
