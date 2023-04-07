@@ -5,16 +5,40 @@
 .hero {
     padding: 3rem 1.5rem;
 
+    @include tablet {
+        padding: 3rem 2rem;
+        display: flex;
+    }
+
+    &__left-container {
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+
     &__text-container {
         text-align: center;
+
+        @include tablet {
+            text-align: left;
+        }
     }
 
     &__main-text {
         @include textStyle($primary-colour-white, 1.5rem, 2rem, 600);
         margin-bottom: 1.5rem;
 
+        @include tablet {
+            @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 600);
+        }
+
         &--special {
             @include textStyle($primary-colour-purple, 1.75rem, 2.25rem, 700);
+
+            @include tablet {
+                @include textStyle($primary-colour-purple, 2rem, 2.5rem, 700);
+            }
         }
     }
 
@@ -23,9 +47,17 @@
         text-align: center;
         margin-top: 1.5rem;
 
-        
+        @include tablet {
+            text-align: left;
+            @include textStyle($primary-colour-white, 1.5rem, 2rem, 500);
+        }
+
         &--special {
             @include textStyle($secondary-colour-champagne-pink,  1.5rem, 2rem, 600);
+
+            @include tablet {
+                @include textStyle($secondary-colour-champagne-pink,  1.75rem, 2.25rem, 600);
+            }
         }
     }
 
@@ -33,13 +65,34 @@
         display: none;
     }
 
-    &__image-container {
+    &__sub-image-container {
         display: flex;
         justify-content: center;
     }
 
-    &__image {
+    &__sub-image {
         border-radius: 50%;
         width: 100px;
+
+        @include tablet {
+            width: 150px;
+        }
+    }
+
+    &__main-image-container {
+        display: none;
+
+        @include tablet {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__main-image {
+        @include tablet {
+            width: 100%;
+            padding-left: 2rem;
+        }
     }
 }
