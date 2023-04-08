@@ -6,9 +6,6 @@ import dashboardIcon from "../../assets/icons/dashboard.svg";
 import "./Home.scss";
 
 function Home() {
-  window.onload = () => {
-    window.scrollTo(0, 0);
-  };
 
   return (
     <main className="home-page">

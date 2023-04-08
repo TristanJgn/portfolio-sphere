@@ -2,9 +2,6 @@ import MarketsTable from "../../Components/MarketsTable/MarketsTable";
 import "./Markets.scss";
 
 function Markets({coinsList}) {
-  window.onload = () => {
-    window.scrollTo(0, 0);
-  };
 
   return (
     <main className="markets-page">
