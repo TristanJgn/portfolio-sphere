@@ -10,6 +10,11 @@
         display: flex;
     }
 
+    @include tablet {
+        padding: 5rem;
+        display: flex;
+    }
+
     &__left-container {
         @include tablet {
             width: 50%;
@@ -25,6 +30,11 @@
 
         @include tablet {
             text-align: left;
+        }
+
+        @include desktop {
+            padding: 0 7.5rem;
+            text-align: center;
         }
     }
 
@@ -53,6 +63,11 @@
         @include tablet {
             text-align: left;
             @include textStyle($primary-colour-white, 1.5rem, 2rem, 500);
+        }
+
+        @include desktop {
+            padding: 0 7.5rem;
+            text-align: center;
         }
 
         &--special {
@@ -98,6 +113,11 @@
             width: 100%;
             max-height: 31.5rem;
             border-radius: 20px;
+        }
+
+        @include desktop {
+            width: 90%;
+            max-height: 40rem;
         }
     }
 }

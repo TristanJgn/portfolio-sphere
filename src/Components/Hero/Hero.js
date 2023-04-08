@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton/MainButton";
 import heroImage from "../../assets/images/Hero.png";
-import placeholderImage from "../../assets/images/00010-2525251208-Hologram_Crypto_imagery_Portfolio.png"
+import mainHeroImage from "../../assets/images/main-hero.png"
 import "./Hero.scss";
 
 function Hero() {
@@ -38,7 +38,7 @@ function Hero() {
         />
       </div>
       <div className="hero__main-image-container">
-        <img className="hero__main-image" src={placeholderImage} alt="hero main" />
+        <img className="hero__main-image" src={mainHeroImage} alt="hero main" />
       </div>
     </section>
   );

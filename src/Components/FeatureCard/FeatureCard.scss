@@ -32,6 +32,10 @@
     @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 600);
     text-align: center;
     margin-top: 0.25rem;
+
+    @include desktop {
+      @include textStyle($primary-colour-white, 1.5rem, 1.75rem, 600);
+    }
   }
 
   &__description {
@@ -41,6 +45,10 @@
 
     @include tablet {
       @include textStyle($primary-colour-white, 1rem, 1.625rem, 400);
+    }
+
+    @include desktop {
+      @include textStyle($primary-colour-white, 1.125rem, 1.625rem, 400);
     }
   }
     
