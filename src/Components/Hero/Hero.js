@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton/MainButton";
 import heroImage from "../../assets/images/Hero.png";
-import placeholderImage from "../../assets/images/Placeholder.jpg"
+import placeholderImage from "../../assets/images/00010-2525251208-Hologram_Crypto_imagery_Portfolio.png"
 import "./Hero.scss";
 
 function Hero() {
