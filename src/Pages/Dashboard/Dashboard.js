@@ -216,7 +216,7 @@ function Dashboard() {
               </div>
               <p
                 className={`dashboard-card__description ${
-                  portfolioChange > 0
+                  portfolioChange24h > 0
                     ? "dashboard-card__description--positive"
                     : "dashboard-card__description--negative"
                 }`}
