@@ -15,6 +15,10 @@
         padding: 0 2rem;
     }
 
+    @include desktop {
+        padding: 0 5rem;
+    }
+
     &__content {
         margin: auto;
         height: 100%;
@@ -30,6 +34,10 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        @include desktop {
+            width: 80%;
         }
     }
 
@@ -87,8 +95,12 @@
 
         @include tablet {
             height: 2.375rem;
-            width: 25%;
+            width: 8rem;
             margin-right: 1rem;
+        }
+
+        @include desktop {
+            width: 12rem;
         }
     }
 
@@ -104,7 +116,11 @@
 
         @include tablet {
             height: 2.375rem;
-            width: 35%;
+            width: 12rem;
+        }
+
+        @include desktop {
+            width: 16rem;
         }
     }
 
@@ -122,6 +138,10 @@
     &__input-group {
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+            align-items: center;
+        }
     }
 
     &__label {
