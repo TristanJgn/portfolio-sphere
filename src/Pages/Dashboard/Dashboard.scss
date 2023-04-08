@@ -4,11 +4,21 @@
 
 .dashboard-page {
   margin-bottom: 1.5rem;
+
+  @include tablet {
+    margin-bottom: 2rem;
+  }
   
   &__title {
       padding: 1.5rem;
       padding-bottom: 0;
       @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+
+      @include tablet {
+        padding: 2rem;
+        padding-bottom: 0;
+        @include textStyle($primary-colour-white, 2rem, 2.5rem, 700);
+      }
   }
 
   &--default {
@@ -37,6 +47,21 @@
   }
 }
 
+.dashboard-card-main-container {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+  }
+}
+
+.dashboard-card-container {
+  @include tablet {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
 .dashboard-card {
   background: $primary-colour-purple;
   border-radius: 12px;
@@ -50,6 +75,12 @@
             2px 4px 8px 0px rgba(0,255,255,0.7),
             2px 4px 16px 0px rgba(0,255,255,0.7);
   transition: transform 0.5s ease;
+
+  @include tablet {
+    margin-bottom: 2rem;
+    width: 40%;
+    height: 20vh;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -66,6 +97,10 @@
   &__title {
     @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 600);
     margin-top: 0.25rem;
+
+    @include tablet {
+      width: 50%;
+    }
   }
 
   &__description {
@@ -110,4 +145,8 @@
     width: 80%;
     background-color: $secondary-colour-dark-grey;
     border-radius: 20px;
+
+    @include tablet {
+      width: 50%;
+    }
 }

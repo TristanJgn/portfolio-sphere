@@ -3,10 +3,20 @@
 @use "../../styles/partials/mixins" as *;
 
 .dashboard-table-section {
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__search {
         display: flex;
         position: relative;
         padding: 0rem 1.5rem;
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+        }
     }
 
     &__icon {
@@ -14,6 +24,11 @@
         position: absolute;
         top: 2.4rem;
         left: 2.25rem;
+
+        @include tablet {
+            position: relative;
+            top: 1rem;
+        }
     }
 
     &__input {
@@ -28,10 +43,16 @@
 
         @include tablet {
             height: 38px;
+            max-width: 50rem;
+            @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
         }
 
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+            
+            @include tablet {
+                @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
+            }        
         }
 
         &:focus {
@@ -48,6 +69,12 @@
 
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        margin-left: 2rem;
     }
 }
 
