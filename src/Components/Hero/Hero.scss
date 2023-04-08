@@ -106,6 +106,23 @@
             justify-content: center;
             margin-left: 2rem;
         }
+
+        @include desktop {
+            display: none;
+        }
+
+        &--desktop {
+            @include tablet {
+                display: none;
+            }
+
+            @include desktop {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin-left: 2rem; 
+            }
+        }
     }
 
     &__main-image {
@@ -115,9 +132,11 @@
             border-radius: 20px;
         }
 
-        @include desktop {
-            width: 90%;
-            max-height: 40rem;
+        &--desktop {
+            @include desktop {
+                width: 100%;
+                max-height: 40rem;  
+            }
         }
     }
 }

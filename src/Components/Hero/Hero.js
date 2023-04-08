@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton/MainButton";
 import heroImage from "../../assets/images/Hero.png";
 import mainHeroImage from "../../assets/images/main-hero.png"
+import mainHeroDesktopImage from "../../assets/images/main-hero-desktop.png";
 import "./Hero.scss";
 
 function Hero() {
@@ -39,6 +40,9 @@ function Hero() {
       </div>
       <div className="hero__main-image-container">
         <img className="hero__main-image" src={mainHeroImage} alt="hero main" />
+      </div>
+      <div className="hero__main-image-container--desktop">
+        <img className="hero__main-image--desktop" src={mainHeroDesktopImage} alt="hero main" />
       </div>
     </section>
   );
