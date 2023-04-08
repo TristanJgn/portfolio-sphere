@@ -16,21 +16,23 @@ function Portfolio({coinsList}) {
       return;
     }
 
-    axios.get(`{${API_URL}/portfolio`, {
-      headers: {
-        Authorization: `Bearer ${jwtToken}`
-      }
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        setUserHoldings(response.data);
-        setIsLoading(false);
-      }
-    })
-    .catch((error) => {
-      return <h2>{error.message}</h2>
-    })
-  }, [])
+    axios
+      .get(`${API_URL}/portfolio`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          setUserHoldings(response.data);
+          setIsLoading(false);
+        }
+      })
+      .catch((error) => {
+        return <h2>{error.message}</h2>;
+      });
+    // eslint-disable-next-line
+  }, []);
 
   const navigate = useNavigate();
   const handleLogin = () => {

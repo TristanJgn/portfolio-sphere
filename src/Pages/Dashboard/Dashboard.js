@@ -41,6 +41,7 @@ function Dashboard() {
       .catch((error) => {
         return <h2>{error.message}</h2>;
       });
+    // eslint-disable-next-line
   }, []);
 
   const navigate = useNavigate();

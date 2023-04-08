@@ -32,6 +32,7 @@ function App() {
 
   useEffect(() => {
     getCoinData();
+    // eslint-disable-next-line
   }, []); // Makes the initial call on page mount (first time user opens the site)
 
   /*
@@ -43,6 +44,7 @@ function App() {
     return () => {
       clearInterval(interval); // Clears the interval when the component unmounts
     };
+    // eslint-disable-next-line
   }, []); // Creates the interval timer on mount
 */
 
