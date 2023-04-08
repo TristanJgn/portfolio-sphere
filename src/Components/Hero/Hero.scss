@@ -10,7 +10,7 @@
         display: flex;
     }
 
-    @include tablet {
+    @include desktop {
         padding: 5rem;
         display: flex;
     }
@@ -98,13 +98,16 @@
     }
 
     &__main-image-container {
-        display: none;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
 
         @include tablet {
             width: 50%;
-            display: flex;
-            justify-content: center;
+            margin-top: 0;
             margin-left: 2rem;
+            border: 2px solid red;
         }
 
         @include desktop {
@@ -112,9 +115,7 @@
         }
 
         &--desktop {
-            @include tablet {
-                display: none;
-            }
+            display: none;
 
             @include desktop {
                 width: 50%;
@@ -126,15 +127,19 @@
     }
 
     &__main-image {
+        width: 100%;
+        max-width: 35rem;
+        border-radius: 20px;
+
         @include tablet {
-            width: 100%;
-            max-height: 31.5rem;
-            border-radius: 20px;
+            max-width: 25rem;
+            max-height: 31.5rem; 
         }
 
         &--desktop {
             @include desktop {
                 width: 100%;
+                border-radius: 20px;
                 max-height: 40rem;  
             }
         }
