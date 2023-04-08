@@ -3,17 +3,38 @@
 @use "../../styles/partials/mixins" as *;
 
 .dashboard-page {
-    margin-bottom: 1.5rem;
-    
-    &__title {
-        padding: 1.5rem;
-        padding-bottom: 0;
-        @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+  margin-bottom: 1.5rem;
+  
+  &__title {
+      padding: 1.5rem;
+      padding-bottom: 0;
+      @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+  }
+
+  &--default {
+    padding: 1.5rem;
+
+    @include tablet {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    &__button-container {
-        padding: 0rem 1.5rem;
+    &__container {
+        @include tablet {
+            padding: 2rem;
+            width: 25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
+
+    &__title {
+        @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+    }
+  }
 }
 
 .dashboard-card {

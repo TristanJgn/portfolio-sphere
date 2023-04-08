@@ -46,13 +46,17 @@ function Dashboard() {
     navigate("/login"); // Take the user to the login page
   };
 
+  const handleManagePortfolio = () => {
+    navigate("/portfolio"); // Take the user to the portfolio page
+  };
+
   if (!sessionStorage.authToken) {
     return (
-      <main className="dashboard-page">
-        <h1 className="dashboard-page__title">
-          You must be logged in to view your dashboard.
-        </h1>
-        <div className="dashboard-page__button-container">
+      <main className="dashboard-page--default">
+        <div className="dashboard-page--default__container">
+          <h1 className="dashboard-page--default__title">
+            You must be logged in to view your dashboard.
+          </h1>
           <MainButton buttonText={"Login"} onClickAction={handleLogin} />
         </div>
       </main>
@@ -63,6 +67,23 @@ function Dashboard() {
     return (
       <main className="dashboard-page">
         <h2 className="dashboard-page__title">Generating insights...</h2>
+      </main>
+    );
+  }
+
+  if (dashboardInfo.length === 0) {
+    return (
+      <main className="dashboard-page--default">
+        <div className="dashboard-page--default__container">
+          <h1 className="dashboard-page--default__title">
+            No portfolio holdings found. Please update your portfolio to generate
+            insights...
+          </h1>
+          <MainButton
+            buttonText={"Manage Portfolio"}
+            onClickAction={handleManagePortfolio}
+          />
+        </div>
       </main>
     );
   }
