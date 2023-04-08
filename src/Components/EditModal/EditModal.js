@@ -6,6 +6,8 @@ import "./EditModal.scss";
 function EditModal({ coin, show, setShow, onClose }) {
   const [coinAmount, setCoinAmount] = useState(coin.coin_amount * 1); // Multiply by 1 to remove any trailing zeros
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleChange = (event) => {
     if (event.target.value === 0) {
         setCoinAmount(0);
@@ -35,7 +37,7 @@ function EditModal({ coin, show, setShow, onClose }) {
     const updatedCoinAmount = {coin_amount : coinAmount}
 
     axios
-      .put(`http://localhost:8080/portfolio/${coin.coin_id}`, updatedCoinAmount, {headers})
+      .put(`${API_URL}/portfolio/${coin.coin_id}`, updatedCoinAmount, {headers})
       .then((response) => {
         if (response.status === 200) {
           window.location.reload(); // Refresh the page to update the user's portfolio on screen

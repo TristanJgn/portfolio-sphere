@@ -18,6 +18,8 @@ function Dashboard() {
   const [dashboardInfo, setDashboardInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const jwtToken = sessionStorage.authToken;
     if (!jwtToken) {
@@ -25,7 +27,7 @@ function Dashboard() {
     }
 
     axios
-      .get("http://localhost:8080/dashboard", {
+      .get(`${API_URL}/dashboard`, {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },

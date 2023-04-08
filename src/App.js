@@ -15,9 +15,11 @@ import "./App.scss";
 function App() {
   const [coinsList, setCoinsList] = useState(null);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const getCoinData = () => {
     axios
-      .get("http://localhost:8080/coins")
+      .get(`${API_URL}/coins`)
       .then((response) => {
         if (response.status === 200) {
           setCoinsList(response.data);

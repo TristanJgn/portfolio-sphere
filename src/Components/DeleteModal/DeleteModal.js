@@ -3,6 +3,8 @@ import closeIcon from "../../assets/icons/close-white.svg";
 import "./DeleteModal.scss";
 
 function DeleteModal({ coin, show, onClose }) {
+  const API_URL = process.env.REACT_APP_API_URL;
+
   if (show === false) {
     return null;
   }
@@ -14,7 +16,7 @@ function DeleteModal({ coin, show, onClose }) {
     }
 
     axios
-    .delete(`http://localhost:8080/portfolio/${coin.coin_id}`, {
+    .delete(`${API_URL}/portfolio/${coin.coin_id}`, {
         headers: {
             Authorization: `Bearer ${jwtToken}`,
         },

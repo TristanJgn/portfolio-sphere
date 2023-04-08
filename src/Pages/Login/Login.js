@@ -12,6 +12,7 @@ function Login() {
   const [invalidCredentials, setInvalidCredentials] = useState(false);
   const [show, setShow] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
   const handleChangeEmail = (event) => {
@@ -57,7 +58,7 @@ function Login() {
     setInvalidCredentials(false); // Clear the invalid credentials error message on every form submission attempt, if the information is invalid again, the catch statement will handle it
     if (validateForm()) {
       axios
-        .post("http://localhost:8080/users/login", {
+        .post(`${API_URL}/users/login`, {
           email,
           password,
         })

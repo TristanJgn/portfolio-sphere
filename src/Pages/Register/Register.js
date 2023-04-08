@@ -14,6 +14,7 @@ function Register() {
   const [existingEmail, setExistingEmail] = useState(false);
   const [show, setShow] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
   function passwordStrengthCheck() {
@@ -103,7 +104,7 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      axios.post("http://localhost:8080/users/register", {
+      axios.post(`${API_URL}/users/register`, {
         email,
         password,
       })

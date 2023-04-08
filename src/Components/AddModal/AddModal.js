@@ -8,6 +8,8 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
   const [selectedCoin, setSelectedCoin] = useState(coinNames[0]);
   const [validCoinAmount, setValidCoinAmount] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleAmountChange = (event) => {
     if (event.target.value === 0) {
       setCoinAmount(0);
@@ -65,7 +67,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
 
     axios
     .post(
-        `http://localhost:8080/portfolio`,
+        `${API_URL}/portfolio`,
         coinToAdd,
         { headers }
     )

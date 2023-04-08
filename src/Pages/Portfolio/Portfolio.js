@@ -6,6 +6,7 @@ import "./Portfolio.scss";
 import UserHoldingsTable from "../../Components/UserHoldingsTable/UserHoldingsTable";
 
 function Portfolio({coinsList}) {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [userHoldings, setUserHoldings] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +16,7 @@ function Portfolio({coinsList}) {
       return;
     }
 
-    axios.get("http://localhost:8080/portfolio", {
+    axios.get(`{${API_URL}/portfolio`, {
       headers: {
         Authorization: `Bearer ${jwtToken}`
       }
