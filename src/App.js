@@ -35,7 +35,6 @@ function App() {
     // eslint-disable-next-line
   }, []); // Makes the initial call on page mount (first time user opens the site)
 
-  /*
   useEffect(() => {
     let interval = setInterval(() => {
       getCoinData();
@@ -46,7 +45,6 @@ function App() {
     };
     // eslint-disable-next-line
   }, []); // Creates the interval timer on mount
-*/
 
   return (
     <BrowserRouter>
