@@ -12,6 +12,10 @@
         padding: 0.5rem 1rem;
         padding-left: 0;
         width: 30%;
+
+        @include tablet {
+            @include textStyle($primary-colour-white, 1rem, 1.75rem, 400);
+        }
     }
 
     &__body-column-coin {
@@ -20,12 +24,20 @@
 
         &__name {
             @include textStyle($primary-colour-white, 1rem, 1.625rem, 600);
-            text-align: left
+            text-align: left;
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 1.0625rem, 1.625rem, 600);
+            }
         }
 
         &__symbol {
             @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 500);
-            text-align: left
+            text-align: left;
+
+            @include tablet {
+                @include textStyle($primary-colour-white, 0.875rem, 1.25rem, 500);   
+            }
         }
     }
 

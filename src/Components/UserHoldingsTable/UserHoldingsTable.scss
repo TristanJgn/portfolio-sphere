@@ -27,10 +27,15 @@
 
         @include tablet {
             height: 38px;
+            @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
         }
 
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+
+            @include tablet {
+                @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
+            }
         }
 
         &:focus {
@@ -55,6 +60,10 @@
         padding-left: 0;
         white-space: nowrap;
         width: 30%;
+
+        @include tablet {
+            @include textStyle($primary-colour-white, 1.25rem, 1.75rem, 700);  
+        }
 
         &--left {
             text-align: left;

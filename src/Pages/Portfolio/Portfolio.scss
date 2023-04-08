@@ -7,10 +7,19 @@
 
     @include tablet {
         padding: 2rem;
+        margin: 0rem auto;
+        max-width: 50rem;
+        display: flex;
+        flex-direction: column;
     }
 
     &__title {
         @include textStyle($primary-colour-white, 1.75rem, 2.25rem, 700);
+
+        @include tablet {
+            text-align: center;
+            margin-top: 5rem;
+        }
     }
 
     &--default {

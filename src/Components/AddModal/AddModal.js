@@ -87,7 +87,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
         </button>
         <div className="add-modal__top-container">
           <div className="add-modal__header">
-            <h1 className="add-modal__header-title">Add to portfolio</h1>
+            <h1 className="add-modal__header-title">Add to Portfolio</h1>
           </div>
           <div className="add-modal__body">
             <div className="add-modal__input-group">

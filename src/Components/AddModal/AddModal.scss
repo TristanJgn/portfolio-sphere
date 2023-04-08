@@ -12,7 +12,9 @@
     height: 35%;
 
     @include tablet {
-        padding: 0 3rem;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: center;
     }
 
     &__content {
@@ -23,10 +25,11 @@
         position: relative;
 
         @include tablet {
-            width: 42rem;
-            height: 16.375rem;
+            width: 100%;
+            max-width: 50rem;
+            height: 60vh;
             padding: 2.5rem 4rem;
-            margin-top: 11.5625rem;
+            margin-top: 5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -77,8 +80,8 @@
 
         @include tablet {
             height: 2.375rem;
-            width: 4.5rem;
-            margin-right: 1rem;
+            width: 25%;
+            margin-right: 1.5rem;
         }
     }
 
@@ -94,7 +97,7 @@
 
         @include tablet {
             height: 2.375rem;
-            width: 4.5rem;
+            width: 35%;
         }
     }
 
@@ -112,6 +115,10 @@
     &__input-group {
         display: flex;
         flex-direction: column;
+        
+        @include tablet {
+            margin-top: 1.75rem;
+        }
     }
 
     &__label {
@@ -137,6 +144,10 @@
 
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
+
+            @include tablet {
+                @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
+            }
         }
 
         &:focus {
@@ -147,6 +158,10 @@
 
     &__dropdown-item {
         @include textStyle($secondary-colour-dark-grey, 0.8125rem, 1.25rem, 400);
+
+        @include tablet {
+            @include textStyle($secondary-colour-dark-grey, 1rem, 1.25rem, 400);
+        }
     }
 
     &__error {
@@ -160,6 +175,10 @@
             @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
             margin-left: 0.25rem;
             padding-top: 0.25rem;
+
+            @include tablet {
+                @include textStyle($secondary-colour-red, 1rem, 1.75rem, 400);
+            }
         }
     }
 }

@@ -48,6 +48,7 @@ table, th, td {
         @include tablet {
             height: 38px;
             max-width: 69rem;
+            @include textStyle($secondary-colour-medium-grey, 0.9375rem, 1.25rem, 400);
         }
 
         &::placeholder {
