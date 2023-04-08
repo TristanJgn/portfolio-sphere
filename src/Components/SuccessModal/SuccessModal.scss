@@ -12,7 +12,7 @@
     height: 40%;
 
     @include tablet {
-        padding: 0 3rem;
+        padding: 0 2rem;
     }
 
     &__content {
@@ -24,10 +24,10 @@
         text-align: center;
 
         @include tablet {
-            width: 42rem;
-            height: 16.375rem;
+            width: 50%;
+            height: 50vh;
             padding: 2.5rem 4rem;
-            margin-top: 11.5625rem;
+            margin-top: 5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
