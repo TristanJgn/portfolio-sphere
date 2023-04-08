@@ -10,6 +10,10 @@ function Portfolio({coinsList}) {
   const [userHoldings, setUserHoldings] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  window.onload = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     const jwtToken = sessionStorage.authToken;
     if (!jwtToken) {

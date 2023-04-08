@@ -15,6 +15,10 @@ import "./Dashboard.scss";
 import AllocationChart from "../../Components/AllocationChart/AllocationChart";
 
 function Dashboard() {
+  window.onload = () => {
+    window.scrollTo(0, 0);
+  };
+
   const [dashboardInfo, setDashboardInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
