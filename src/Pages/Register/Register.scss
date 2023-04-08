@@ -31,14 +31,26 @@
 
     &__title {
         @include textStyle($secondary-colour-cyan, 1.25rem, 1.75rem, 600);
+        
+        @include tablet {
+            @include textStyle($secondary-colour-cyan, 1.5rem, 1.75rem, 600);
+        }
     }
 
     &__subtext {
         @include textStyle($secondary-colour-light-grey, 0.75rem, 1.25rem, 400);
 
+        @include tablet {
+            @include textStyle($secondary-colour-light-grey, 0.8125rem, 1.25rem, 400);
+        }
+
         &--special {
             @include textStyle($secondary-colour-cyan, 0.8125rem, 1.25rem, 600);
             cursor: pointer;
+
+            @include tablet {
+                @include textStyle($secondary-colour-cyan, 0.875rem, 1.25rem, 600);
+            }
         }
     }
     
@@ -57,6 +69,10 @@
     &__label {
         @include textStyle($secondary-colour-cyan, 0.9375rem, 1.625rem, 500);
         margin-bottom: 0.25rem;
+
+        @include tablet {
+            @include textStyle($secondary-colour-cyan, 1rem, 1.625rem, 500);
+        }
     }
 
     &__input {
@@ -68,12 +84,20 @@
         margin-bottom: 1.5rem;
         @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 400);
 
+        @include tablet {
+            @include textStyle($primary-colour-white, 0.875rem, 1.25rem, 400);
+        }
+
         &:focus {
             outline: 1px solid $secondary-colour-cyan;
         }
 
         &::placeholder {
             @include textStyle($secondary-colour-light-grey, 0.8125rem, 1.25rem, 400);
+
+            @include tablet {
+                @include textStyle($secondary-colour-light-grey, 0.875rem, 1.25rem, 400);
+            }
         }
 
         &--error {
@@ -96,6 +120,10 @@
         background-color: $secondary-colour-cyan;
         cursor: pointer;
         width: 100%;
+
+        @include tablet {
+            @include textStyle($secondary-colour-dark-grey, 1rem, 1.625rem, 500);
+        }
     }
 }
 
@@ -110,6 +138,10 @@
     
     &__message {
         @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
+
+        @include tablet {
+            @include textStyle($secondary-colour-red, 0.875rem, 1.25rem, 400);
+        }
     }
 }
 
@@ -156,6 +188,10 @@
 
     &__text {
         @include textStyle($primary-colour-white, 0.8125rem, 1.25rem, 600);
+
+        @include tablet {
+            @include textStyle($primary-colour-white, 0.875rem, 1.25rem, 600);
+        }
 
         &--weak {
             color: $secondary-colour-red;
