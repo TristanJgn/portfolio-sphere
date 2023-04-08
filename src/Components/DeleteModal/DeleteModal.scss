@@ -35,6 +35,11 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
+        @include desktop {
+            width: 80%;
+            height: 25rem;
+        }
     }
 
     &__header {

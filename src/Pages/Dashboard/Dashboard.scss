@@ -6,7 +6,7 @@
   margin-bottom: 1.5rem;
 
   @include tablet {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   
   &__title {
@@ -19,6 +19,20 @@
         padding-bottom: 0;
         @include textStyle($primary-colour-white, 2rem, 2.5rem, 700);
       }
+
+      @include desktop {
+        padding-left: 5rem;
+        padding-top: 3rem;
+      }
+  }
+
+  &__insights-container {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 5rem;
+      padding-left: 2rem;
+    }
   }
 
   &--default {
@@ -53,6 +67,10 @@
     flex-direction: column;
     margin: 2rem;
   }
+
+  @include desktop {
+    width: 100%;
+  }
 }
 
 .dashboard-card-container {
@@ -79,6 +97,12 @@
   @include tablet {
     margin-bottom: 2rem;
     width: 40%;
+    height: 20vh;
+  }
+
+  @include desktop {
+    margin-bottom: 2rem;
+    width: 50%;
     height: 20vh;
   }
 
@@ -148,5 +172,10 @@
 
     @include tablet {
       width: 50%;
+    }
+
+    @include desktop {
+      width: 100%;
+      height: 82.5%;
     }
 }

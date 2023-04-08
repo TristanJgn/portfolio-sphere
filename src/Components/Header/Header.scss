@@ -21,6 +21,10 @@
     &__logo {
         width: 175px;
 
+        @include desktop {
+            width: 225px;
+        }
+
         &:hover {
             cursor: pointer;
         }

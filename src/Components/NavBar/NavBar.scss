@@ -36,9 +36,17 @@
     &__icon {
         width: 25px;
         margin-bottom: 0.25rem;
+
+        @include desktop {
+            width: 30px;
+        }
     }
 
     &__text {
         @include textStyle($primary-colour-white, 1rem, 1.375rem, 600);
+
+        @include desktop {
+            @include textStyle($primary-colour-white, 1.25rem, 1.375rem, 600);
+        }
     }
 }
