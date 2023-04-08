@@ -40,6 +40,9 @@ function AllocationChart ({ chartData }) {
               },
             },
             plugins: {
+              tooltip: {
+                enabled: false,
+              },
               datalabels: {
                 formatter: (value) => {
                   const formattedValue = value + "%";
