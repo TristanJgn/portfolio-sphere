@@ -21,13 +21,14 @@
 
     &__content {
         margin: auto;
-        height: 50vh;
+        height: 100vh;
         padding: 1.5rem 1rem;
         background-color: $secondary-colour-dark-grey;
         position: relative;
 
         @include tablet {
             width: 100%;
+            height: 50vh;
             padding: 2.5rem 4rem;
             margin-top: 10rem;
             display: flex;
