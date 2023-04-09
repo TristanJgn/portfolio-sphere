@@ -10,7 +10,7 @@ import DashboardTable from "../../Components/DashboardTable/DashboardTable";
 import dollarIcon from "../../assets/icons/portfolio.svg"
 import numHoldingsIcon from "../../assets/icons/coins.svg"
 import topHoldingIcon from "../../assets/icons/coin-stack.svg"
-import percentChangeIcon from "../../assets/icons/circle-of-arrows.svg"
+import hourIcon from "../../assets/icons/24hr.svg"
 import "./Dashboard.scss";
 import AllocationChart from "../../Components/AllocationChart/AllocationChart";
 
@@ -210,9 +210,9 @@ function Dashboard() {
               <div className="dashboard-card__heading-container">
                 <h2 className="dashboard-card__title">24h Change</h2>
                 <img
-                  src={percentChangeIcon}
-                  alt="percent change icon"
-                  className="dashboard-card__icon--smaller"
+                  src={hourIcon}
+                  alt="24h change icon"
+                  className="dashboard-card__icon"
                 />
               </div>
               <p
