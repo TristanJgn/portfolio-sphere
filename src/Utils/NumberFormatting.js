@@ -1,8 +1,29 @@
 export function priceFormat(price) {
-    return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    }).format(price);
+    // For most prices, only show 2 decimals like a normal currency
+    if (price >= 1) {
+        return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        }).format(price);
+    }
+
+    // For coins with a price under a dollar but at least 1 cent, show 4 decimals
+    if (price < 1 && price >= 0.01) {
+        return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 4,
+        }).format(price);
+    }
+
+    // For the coins that are very low prices, i.e. under 1 cent, show 8 decimals
+    if (price >= 0 && price < 0.01) {
+        return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 8,
+        }).format(price);
+    }
 };
 
 export function roundedDollarFormat(value) {
