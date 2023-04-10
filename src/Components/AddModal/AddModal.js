@@ -38,7 +38,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
   }
 
   const handleAdd = () => {
-    if (!(coinAmount > 0)) {
+    if (coinAmount <= 0) {
       setValidCoinAmount("error");
       return;
     }
@@ -131,7 +131,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
               }`}
             >
               <h3 className="add-modal__error-message">
-                {`${!(coinAmount > 0) ? "Invalid amount" : ""}`}
+                {`${coinAmount <= 0 ? "Invalid amount" : ""}`}
               </h3>
             </div>
           </div>
