@@ -47,7 +47,7 @@ On both sides, **Axios** was used for making requests between the client and ser
 * Users can register for an account and login on subsequent visits to be able to save their portfolio
 * Markets page which shows real-time data (limited to the top 100 coins by market capitalization for now)
 * Users can add, edit, and delete coins in their portfolio
-* A dashboard which has cards with key insights, a pie chart showing the user their top 3 holdings, and a table showing all of their inesvtments
+* A dashboard which has cards with key insights, a pie chart showing the user their top 3 holdings, and a table showing all of their investments
 * Custom password strength meter on registration form using regex
 
 # Installation
