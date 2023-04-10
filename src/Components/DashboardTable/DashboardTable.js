@@ -3,6 +3,7 @@ import {
   priceFormat,
   roundedDollarFormat,
   percentageFormat,
+  amountFormat,
 } from "../../Utils/NumberFormatting";
 import searchIcon from "../../assets/icons/search.svg";
 import "./DashboardTable.scss";
@@ -89,7 +90,7 @@ function DashboardTable({ finalDashboardInfo }) {
                   </td>
                   <td className="dashboard-table__body-column">
                     {/* Multiplying by 1 removes any trailing zeros */}
-                    {coin.coin_amount * 1}
+                    {amountFormat(coin.coin_amount * 1)}
                   </td>
                   <td className="dashboard-table__body-column">
                     {roundedDollarFormat(coin.market_value)}

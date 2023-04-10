@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { amountFormat } from "../../Utils/NumberFormatting";
 import editIcon from "../../assets/icons/edit.svg";
 import deleteIcon from "../../assets/icons/delete.svg";
 import EditModal from "../EditModal/EditModal";
@@ -27,7 +28,7 @@ function UserHoldingsTableRow({ coin }) {
       </td>
       <td className="user-holdings-table__body-column">
         {/* Multiplying by 1 removes any trailing zeros */}
-        {coin.coin_amount * 1}
+        {amountFormat(coin.coin_amount * 1)}
       </td>
       <td className="user-holdings-table__body-column">
         <div className="user-holdings-table__body-column-actions">

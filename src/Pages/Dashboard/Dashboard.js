@@ -4,6 +4,7 @@ import axios from "axios";
 import {
   roundedDollarFormat,
   percentageFormat,
+  amountFormat,
 } from "../../Utils/NumberFormatting";
 import MainButton from "../../Components/MainButton/MainButton";
 import DashboardTable from "../../Components/DashboardTable/DashboardTable";
@@ -201,7 +202,7 @@ function Dashboard() {
                 />
               </div>
               <p className="dashboard-card__description">
-                {`${finalDashboardInfo[0].coin_amount * 1} ${
+                {`${amountFormat(finalDashboardInfo[0].coin_amount * 1)} ${
                   finalDashboardInfo[0].symbol
                 } (${roundedDollarFormat(finalDashboardInfo[0].market_value)})`}
               </p>

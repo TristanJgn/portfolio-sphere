@@ -20,3 +20,7 @@ export function percentageFormat(value) {
     maximumFractionDigits: 2,
     }).format(value / 100);
 };
+
+export function amountFormat(amount) {
+    return amount.toLocaleString("en-US");
+}
