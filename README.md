@@ -17,9 +17,7 @@ This project was built as my capstone project for BrainStation's full-stack soft
 
 Check it out here: [Portfolio Sphere](https://portfolio-sphere.vercel.app/)
 
-Link to server: [Portfolio Sphere Server](https://portfolio-sphere-server.onrender.com)
-
-The MySQL database is currently being hosted via AWS. 
+Currently, the frontend is being hosted on Vercel, the backend on Render, and the MySQL database on AWS.
 
 
 
