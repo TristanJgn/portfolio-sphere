@@ -5,6 +5,8 @@
 
 This project was built as my capstone project for BrainStation's full-stack software engineering bootcamp. The goal was to create and build a full-stack application within two weeks. 
 
+The repository for the server can be found [here](https://github.com/TristanJgn/portfolio-sphere-server).
+
 —Tristan (April 2023)
 
 
@@ -40,6 +42,16 @@ Additionally, **Chart.js**  was used to create the graphs on the dashboard.
 This server setup allowed me to develop a **REST API** which incorporates **JWT** for authentication and **Bcrypt** for password hashing. Finally, **Knex** was used for making SQL queries.
 
 On both sides, **Axios** was used for making requests between the client and server, as well as to the external [CoinMarketCap API](https://coinmarketcap.com/api/). **npm** was used to manage the various dependencies required throughout the project. 
+
+# Features
+* Fully responsive
+* Data auto-refreshes every 5 minutes using the [CoinMarketCap API](https://coinmarketcap.com/api/)
+* Users can register for an account and login on subsequent visits to be able to save their portfolio
+* Markets page which shows real-time data (limited to the top 100 coins by market capitalization for now)
+* Users can add, edit, and delete coins in their portfolio
+* A dashboard which has cards with key insights, a pie chart showing the user their top 3 holdings, and a table showing all of their investments
+* Custom password strength meter on registration form using regex
+
 # Installation
 
 If you'd like to run the project locally, please follow the steps below to run Portfolio Sphere:\
