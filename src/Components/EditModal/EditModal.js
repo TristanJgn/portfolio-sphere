@@ -30,7 +30,8 @@ function EditModal({ coin, show, setShow, onClose }) {
       setValidCoinAmount("error");
       return;
     }
-
+    
+    setValidCoinAmount(true);
     const jwtToken = sessionStorage.authToken;
     if (!jwtToken) {
       return;
