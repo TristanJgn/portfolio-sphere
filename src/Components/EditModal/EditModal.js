@@ -19,6 +19,7 @@ function EditModal({ coin, show, setShow, onClose }) {
   const handleCancel = () => {
     setShow(false);
     setCoinAmount(coin.coin_amount * 1); // Multiply by 1 to remove any trailing zeros
+    setValidCoinAmount(true);
   }
 
   if (show === false) {
