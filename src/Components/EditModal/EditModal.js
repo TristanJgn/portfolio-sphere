@@ -5,6 +5,7 @@ import "./EditModal.scss";
 
 function EditModal({ coin, show, setShow, onClose }) {
   const [coinAmount, setCoinAmount] = useState(coin.coin_amount * 1); // Multiply by 1 to remove any trailing zeros
+  const [validCoinAmount, setValidCoinAmount] = useState(false);
 
   const API_URL = process.env.REACT_APP_API_URL;
 
@@ -25,6 +26,11 @@ function EditModal({ coin, show, setShow, onClose }) {
   }
 
   const updateAmount = () => {
+    if (coinAmount <= 0) {
+      setValidCoinAmount("error");
+      return;
+    }
+
     const jwtToken = sessionStorage.authToken;
     if (!jwtToken) {
       return;
@@ -70,14 +76,26 @@ function EditModal({ coin, show, setShow, onClose }) {
                 Amount of {coin.coin_name}
               </label>
               <input
-                className="edit-modal__input"
-                type="text"
+                className={`edit-modal__input ${
+                  validCoinAmount === "error" ? "edit-modal__input--error" : ""
+                }`}
+                type="number" // Use number input type to only allow numbers or a decimal
+                min={0}
                 id="coinAmount"
                 name="coinAmount"
                 placeholder="0"
                 onChange={handleChange}
                 value={coinAmount}
               ></input>
+            </div>
+            <div
+              className={`edit-modal__error ${
+                validCoinAmount === "error" ? "edit-modal__error--show" : ""
+              }`}
+            >
+              <h3 className="edit-modal__error-message">
+                {`${coinAmount <= 0 ? "Invalid amount" : ""}`}
+              </h3>
             </div>
           </div>
         </div>

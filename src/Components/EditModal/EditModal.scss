@@ -165,6 +165,10 @@
             height: 38px;
         }
 
+        &--error {
+            border: 2px solid $secondary-colour-red;
+        }
+
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
         }
@@ -172,6 +176,29 @@
         &:focus {
             border: none;
             outline: 2px solid $primary-colour-blue;
+        }
+    }
+
+    &__error {
+        display: none;
+
+        &--show {
+            display: flex;
+
+            @include tablet {
+                justify-content: center;
+            }
+        }
+        
+        &-message {
+            @include textStyle($secondary-colour-red, 0.8125rem, 1.25rem, 400);
+            margin-left: 0.25rem;
+            padding-top: 0.25rem;
+
+            @include tablet {
+                @include textStyle($secondary-colour-red, 1rem, 1.75rem, 400);
+                margin-left: 0;
+            }
         }
     }
 }
