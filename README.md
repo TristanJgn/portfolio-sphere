@@ -5,6 +5,8 @@
 
 This project was built as my capstone project for BrainStation's full-stack software engineering bootcamp. The goal was to create and build a full-stack application within two weeks. 
 
+The repository for the server can be found [here](https://github.com/TristanJgn/portfolio-sphere-server).
+
 —Tristan (April 2023)
 
 
