@@ -144,6 +144,10 @@
             max-width: 25rem;
         }
 
+        &--error {
+            border: 2px solid $secondary-colour-red;
+        }
+
         &::placeholder {
             @include textStyle($secondary-colour-medium-grey, 0.8125rem, 1.25rem, 400);
 
@@ -171,6 +175,10 @@
 
         &--show {
             display: flex;
+
+            @include tablet {
+                justify-content: center;
+            }
         }
         
         &-message {
@@ -180,6 +188,7 @@
 
             @include tablet {
                 @include textStyle($secondary-colour-red, 1rem, 1.75rem, 400);
+                margin-left: 0;
             }
         }
     }

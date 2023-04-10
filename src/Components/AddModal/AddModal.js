@@ -38,47 +38,43 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
   }
 
   const handleAdd = () => {
-    if (!coinAmount) {
-        setValidCoinAmount("error");
-        return;
+    if (!(coinAmount > 0)) {
+      setValidCoinAmount("error");
+      return;
     }
 
     setValidCoinAmount(true);
     const jwtToken = sessionStorage.authToken;
     if (!jwtToken) {
-        return;
+      return;
     }
 
     function findCoin(coin) {
-        return coin.name === selectedCoin;
+      return coin.name === selectedCoin;
     }
 
     const foundCoin = coinsList.find(findCoin);
     const coinToAdd = {
-        coin_id: foundCoin.id,
-        coin_name: foundCoin.name,
-        coin_symbol: foundCoin.symbol,
-        coin_amount: coinAmount,
-    }
+      coin_id: foundCoin.id,
+      coin_name: foundCoin.name,
+      coin_symbol: foundCoin.symbol,
+      coin_amount: coinAmount,
+    };
 
     const headers = {
-    Authorization: `Bearer ${jwtToken}`,
+      Authorization: `Bearer ${jwtToken}`,
     };
 
     axios
-    .post(
-        `${API_URL}/portfolio`,
-        coinToAdd,
-        { headers }
-    )
-    .then((response) => {
+      .post(`${API_URL}/portfolio`, coinToAdd, { headers })
+      .then((response) => {
         if (response.status === 201) {
-        window.location.reload(); // Refresh the page to update the user's portfolio on screen
+          window.location.reload(); // Refresh the page to update the user's portfolio on screen
         }
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         return <h2>{error.message}</h2>;
-    });
+      });
   };
 
   return (
@@ -117,8 +113,11 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
                 Amount of {selectedCoin}
               </label>
               <input
-                className="add-modal__input"
-                type="text"
+                className={`add-modal__input ${
+                  validCoinAmount === "error" ? "add-modal__input--error" : ""
+                }`}
+                type="number" // Use number input type to only allow numbers or a decimal
+                min={0}
                 id="coinAmount"
                 name="coinAmount"
                 placeholder="0"
@@ -132,7 +131,7 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
               }`}
             >
               <h3 className="add-modal__error-message">
-                {`${!coinAmount ? "This field is required" : ""}`}
+                {`${!(coinAmount > 0) ? "Invalid amount" : ""}`}
               </h3>
             </div>
           </div>
@@ -141,7 +140,9 @@ function AddModal({ coinNames, coinsList, show, setShow, onClose }) {
           <button className="add-modal__cancel" onClick={() => handleCancel()}>
             Cancel
           </button>
-          <button className="add-modal__add" onClick={() => handleAdd()}>Add</button>
+          <button className="add-modal__add" onClick={() => handleAdd()}>
+            Add
+          </button>
         </div>
       </div>
     </div>
