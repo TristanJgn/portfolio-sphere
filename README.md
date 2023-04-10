@@ -47,9 +47,10 @@ If you'd like to run the project locally, please follow the steps below to run P
 
 #### Set up the backend
 
-1. Clone or download the [server repo](https://github.com/TristanJgn/portfolio-sphere-server)
+1. Clone or download the [server repo](https://github.com/TristanJgn/portfolio-sphere-server).
 
 2. Create a new database in MySQL called `portfolio_sphere`.
+
 3. Install server dependencies:  
    
    Run `npm install` from inside the server directory.
@@ -109,14 +110,24 @@ CMC_API_KEY
    ```bash    
    $ npm install
    ```
-11. Set environment variables:  
-   
-   Rename `.env_sample` to `.env` and change the placeholder value to the port you set for the server.
-   ```shell
-   REACT_APP_API_URL=http://localhost:<PORT SET IN /server/.env>
-   ```
+11. Set environment variables:
+
+    Rename `.env.sample` to `.env` and change the placeholder value to the port you set up for the server.
+
+```shell
+REACT_APP_API_URL=http://localhost:<PORT SET IN /server/.env>
+```
 12. Start the React app:
 ```bash
 $ npm start
 ```
+    
+# Contact
+
+If you'd like to get in contact with me to learn more about Portfolio Sphere or my experience, I'd love to chat! Please feel free to reach out:
+
+Email: [tristan.jgn@gmail.com](mailto:tristan.jgn@gmail.com)\
+LinkedIn: https://www.linkedin.com/in/tristanjagan/
+
+
     
