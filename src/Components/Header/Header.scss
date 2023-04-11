@@ -20,6 +20,7 @@
 
     &__logo {
         width: 175px;
+        transition: transform 0.5s ease;
 
         @include desktop {
             width: 225px;
@@ -27,6 +28,7 @@
 
         &:hover {
             cursor: pointer;
+            transform: scale(1.1);
         }
     }
 }
