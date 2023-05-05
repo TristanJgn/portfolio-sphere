@@ -18,7 +18,7 @@ The repository for the server can be found [here](https://github.com/TristanJgn/
 **Portfolio Sphere is live!**
 
 Check it out here: [Portfolio Sphere](https://portfolio-sphere.vercel.app/)\
-Check out a demo: [Portfolio Sphere](https://www.loom.com/share/db1fd414fc9f4d1dbe721957d3e1589a)
+Demo Video: [Demo](https://www.loom.com/share/db1fd414fc9f4d1dbe721957d3e1589a)
 
 Currently, the frontend is being hosted on Vercel, the backend on Render, and the MySQL database on AWS.
 
