@@ -136,9 +136,9 @@
 
         &--desktop {
             @include desktop {
-                width: 100%;
+                width: 65%;
                 border-radius: 20px;
-                max-height: 40rem;  
+                height: 31.5rem;
             }
         }
     }
